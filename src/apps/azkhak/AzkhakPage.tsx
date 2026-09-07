@@ -1,12 +1,12 @@
 import { ArrowUpIcon } from '@phosphor-icons/react'
 import { Link } from '@tanstack/react-router'
+import { useFavicon } from '#/common/helpers/useFavicon'
 import { buttonVariants } from '#/common/ui/button'
 import { AzkhakCard } from './AzkhakCard'
 import { KeyboardShortcutsGuideDialog } from './KeyboardShortcutsGuideDialog'
-import { useFavicon } from './useFavicon'
 
 export function AzkhakPage() {
-  useFavicon()
+  useFavicon('/apps/Azkhak.png')
 
   return (
     <div className='flex min-h-svh flex-col items-center justify-center gap-2 bg-background p-4 md:p-8 relative'>

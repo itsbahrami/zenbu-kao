@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export const useFavicon = () =>
+export const useFavicon = (faviconUrl: string) =>
   useEffect(() => {
     // 1. Get the current favicon element
     let link = document.querySelector("link[rel='icon']") as HTMLLinkElement
@@ -16,10 +16,10 @@ export const useFavicon = () =>
     const originalHref = link.href
 
     // 4. Set the new favicon for this page
-    link.href = '/apps/Azkhak.png'
+    link.href = faviconUrl
 
     // 5. Cleanup: restore the original favicon when leaving this page
     return () => {
       link.href = originalHref
     }
-  }, [])
+  }, [faviconUrl])

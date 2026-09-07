@@ -18,6 +18,7 @@ import { Route as RegisterRouteImport } from './routes/register'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as AppsIndexRouteImport } from './routes/apps/index'
 import { Route as AppsAzkhakRouteImport } from './routes/apps/azkhak'
+import { Route as AppsMakhteRouteImport } from './routes/apps/makhte'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
 
 const IndexRoute = IndexRouteImport.update({
@@ -65,6 +66,11 @@ const AppsAzkhakRoute = AppsAzkhakRouteImport.update({
   path: '/apps/azkhak',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppsMakhteRoute = AppsMakhteRouteImport.update({
+  id: '/apps/makhte',
+  path: '/apps/makhte',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
   id: '/dashboard/',
   path: '/dashboard/',
@@ -80,6 +86,7 @@ export interface FileRoutesByFullPath {
   '/register': typeof RegisterRoute
   '/terms': typeof TermsRoute
   '/apps/azkhak': typeof AppsAzkhakRoute
+  '/apps/makhte': typeof AppsMakhteRoute
   '/apps/': typeof AppsIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
@@ -92,6 +99,7 @@ export interface FileRoutesByTo {
   '/register': typeof RegisterRoute
   '/terms': typeof TermsRoute
   '/apps/azkhak': typeof AppsAzkhakRoute
+  '/apps/makhte': typeof AppsMakhteRoute
   '/apps': typeof AppsIndexRoute
   '/dashboard': typeof DashboardIndexRoute
 }
@@ -105,6 +113,7 @@ export interface FileRoutesById {
   '/register': typeof RegisterRoute
   '/terms': typeof TermsRoute
   '/apps/azkhak': typeof AppsAzkhakRoute
+  '/apps/makhte': typeof AppsMakhteRoute
   '/apps/': typeof AppsIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
@@ -119,6 +128,7 @@ export interface FileRouteTypes {
     | '/register'
     | '/terms'
     | '/apps/azkhak'
+    | '/apps/makhte'
     | '/apps/'
     | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
@@ -131,6 +141,7 @@ export interface FileRouteTypes {
     | '/register'
     | '/terms'
     | '/apps/azkhak'
+    | '/apps/makhte'
     | '/apps'
     | '/dashboard'
   id:
@@ -143,6 +154,7 @@ export interface FileRouteTypes {
     | '/register'
     | '/terms'
     | '/apps/azkhak'
+    | '/apps/makhte'
     | '/apps/'
     | '/dashboard/'
   fileRoutesById: FileRoutesById
@@ -156,6 +168,7 @@ export interface RootRouteChildren {
   RegisterRoute: typeof RegisterRoute
   TermsRoute: typeof TermsRoute
   AppsAzkhakRoute: typeof AppsAzkhakRoute
+  AppsMakhteRoute: typeof AppsMakhteRoute
   AppsIndexRoute: typeof AppsIndexRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
 }
@@ -225,6 +238,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppsAzkhakRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/apps/makhte': {
+      id: '/apps/makhte'
+      path: '/apps/makhte'
+      fullPath: '/apps/makhte'
+      preLoaderRoute: typeof AppsMakhteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard/': {
       id: '/dashboard/'
       path: '/dashboard'
@@ -244,6 +264,7 @@ const rootRouteChildren: RootRouteChildren = {
   RegisterRoute: RegisterRoute,
   TermsRoute: TermsRoute,
   AppsAzkhakRoute: AppsAzkhakRoute,
+  AppsMakhteRoute: AppsMakhteRoute,
   AppsIndexRoute: AppsIndexRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 }
