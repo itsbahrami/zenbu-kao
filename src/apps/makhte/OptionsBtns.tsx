@@ -16,6 +16,7 @@ export const OptionsBtns = () => (
       <Button
         size='icon'
         variant='outline'
+        nativeButton={false}
         render={
           <Link to='/apps'>
             <ArrowUpIcon />

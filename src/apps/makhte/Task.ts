@@ -20,7 +20,7 @@ export class Task implements ITask {
   static create = (
     title: string,
     description?: string,
-    status = TaskStatus.Backlog,
+    status: TaskStatus = TaskStatus.Backlog,
   ): Task =>
     new Task({
       id: generateShortId(),

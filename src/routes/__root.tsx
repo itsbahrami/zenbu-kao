@@ -42,11 +42,13 @@ function RootDocument(p: PropsWithChildren) {
 
       <body>
         <TooltipProvider>{p.children}</TooltipProvider>
+
         <ClientOnly>
           <ClientConfigurator />
           <Devtools />
           <Toaster />
         </ClientOnly>
+
         <Scripts />
       </body>
     </html>
