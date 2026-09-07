@@ -5,11 +5,13 @@ export type ViewMode = 'table' | 'kanban'
 interface MakhteStoreShape {
   projectTitle: string
   viewMode: ViewMode
+  isFileLoaded: boolean
 }
 
 const emptyState: MakhteStoreShape = {
   projectTitle: '',
   viewMode: 'kanban',
+  isFileLoaded: false,
 }
 
 const makhteStore = createStore(emptyState, a => ({
@@ -21,6 +23,9 @@ const makhteStore = createStore(emptyState, a => ({
 
   setViewMode: (viewMode: ViewMode) => a.setState(p => ({ ...p, viewMode })),
 
+  openFile: () => a.setState(p => ({ ...p, isFileLoaded: true })),
+  closeFile: () => a.setState(p => ({ ...p, isFileLoaded: false })),
+
   reset: () => a.setState(() => emptyState),
 }))
 
@@ -28,10 +33,7 @@ export const makhteActions = makhteStore.actions
 
 // ====================
 
-/** @returns {string} The current project title. */
-export const useProjectTitle = (): string =>
+export const useProjectTitle = () =>
   useSelector(makhteStore, s => s.projectTitle)
-
-/** @returns {ViewMode} The current view mode. */
-export const useViewMode = (): ViewMode =>
-  useSelector(makhteStore, s => s.viewMode)
+export const useViewMode = () => useSelector(makhteStore, s => s.viewMode)
+export const useFileLoaded = () => useSelector(makhteStore, s => s.isFileLoaded)
