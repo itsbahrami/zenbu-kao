@@ -32,7 +32,7 @@ export function SimpleButtonSelect(p: SimpleButtonSelectProps) {
             variant={value === item.value ? 'default' : 'outline'}
             onClick={() => field.setValue(item.value)}
             nativeButton={false}
-            render={<input type='button'  value={item.label} />}
+            render={<input type='button' value={item.label} />}
           />
         ))}
       </div>

@@ -26,7 +26,11 @@ export const CreateTaskDialog = () => (
       </DialogHeader>
 
       <div className=''>
-        <TaskForm isEditMode={false} defaultValues={null} handler={newTaskHandler} />
+        <TaskForm
+          isEditMode={false}
+          defaultValues={null}
+          handler={newTaskHandler}
+        />
       </div>
     </DialogContent>
   </Dialog>

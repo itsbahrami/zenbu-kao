@@ -4,6 +4,7 @@ import { AppNav } from './AppNav'
 import { CreateTaskDialog } from './CreateTaskDialog'
 import { EditTaskDialog } from './EditTaskDialog'
 import { FAVICON } from './FAVICON'
+import { RemoveTaskDialog } from './RemoveTaskDialog'
 
 export function MakhtePage() {
   useFavicon(FAVICON)
@@ -14,6 +15,7 @@ export function MakhtePage() {
       <AppBody />
       <CreateTaskDialog />
       <EditTaskDialog />
+      <RemoveTaskDialog />
     </div>
   )
 }

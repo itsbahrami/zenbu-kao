@@ -13,9 +13,7 @@ interface MakhteStoreShape {
   tasks: Task[]
   isCreateTaskDialogOpen: boolean
   taskToEdit: ITask | null
-  removeTaskDialogValue:
-    | { isOpen: false; }
-    | { isOpen: true; taskId: string }
+  taskToRemove: ITask | null
 }
 
 const emptyState: MakhteStoreShape = {
@@ -25,7 +23,7 @@ const emptyState: MakhteStoreShape = {
   tasks: SAMPLE_TASKS,
   isCreateTaskDialogOpen: false,
   taskToEdit: null,
-  removeTaskDialogValue: { isOpen: false },
+  taskToRemove: null,
 }
 
 const makhteStore = createStore(emptyState, a => ({
@@ -49,13 +47,11 @@ const makhteStore = createStore(emptyState, a => ({
 
   openEditTaskDialog: (taskToEdit: ITask) =>
     a.setState(p => ({ ...p, taskToEdit })),
-  closeEditTaskDialog: () =>
-    a.setState(p => ({ ...p, taskToEdit: null })),
+  closeEditTaskDialog: () => a.setState(p => ({ ...p, taskToEdit: null })),
 
-  openRemoveTaskDialog: (taskId: string) =>
-    a.setState(p => ({ ...p, removeTaskDialogValue: { isOpen: true, taskId } })),
-  closeRemoveTaskDialog: () =>
-    a.setState(p => ({ ...p, removeTaskDialogValue: { isOpen: false } })),
+  openRemoveTaskDialog: (taskToRemove: ITask) =>
+    a.setState(p => ({ ...p, taskToRemove })),
+  closeRemoveTaskDialog: () => a.setState(p => ({ ...p, taskToRemove: null })),
 
   addTask: (task: ITask) =>
     a.setState(p => ({ ...p, tasks: [...p.tasks, Task.fromITask(task)] })),
@@ -82,8 +78,9 @@ export const useViewMode = () => useSelector(makhteStore, s => s.viewMode)
 export const useFileLoaded = () => useSelector(makhteStore, s => s.isFileLoaded)
 export const useCreateTaskOpened = () =>
   useSelector(makhteStore, s => s.isCreateTaskDialogOpen)
-export const useTaskToEdit = () =>
-  useSelector(makhteStore, s => s.taskToEdit)
+export const useTaskToEdit = () => useSelector(makhteStore, s => s.taskToEdit)
+export const useTaskToRemove = () =>
+  useSelector(makhteStore, s => s.taskToRemove)
 export const useTableViewTasks = () => useSelector(makhteStore, s => s.tasks)
 export const useKanbanViewTasks = (): Record<TaskStatus, Task[]> =>
   useSelector(makhteStore, s => ({

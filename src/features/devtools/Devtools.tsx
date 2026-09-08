@@ -16,5 +16,8 @@ const plugins = [
 ]
 
 export const Devtools = () => (
-  <TanStackDevtools config={{ position: 'bottom-right', triggerMode: 'floating' }} plugins={plugins} />
+  <TanStackDevtools
+    config={{ position: 'bottom-right', triggerMode: 'floating' }}
+    plugins={plugins}
+  />
 )

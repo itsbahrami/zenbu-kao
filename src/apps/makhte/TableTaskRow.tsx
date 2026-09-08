@@ -12,7 +12,9 @@ import { TaskStatusBadge } from './TaskStatusBadge'
 
 export const TableTaskRow = (p: { task: ITask }) => (
   <TableRow>
-    <TableCell className='text-muted-foreground' dir='auto'>{p.task.title}</TableCell>
+    <TableCell className='text-muted-foreground' dir='auto'>
+      {p.task.title}
+    </TableCell>
 
     <TableCell>
       <TaskStatusBadge status={p.task.status} />
@@ -26,13 +28,21 @@ export const TableTaskRow = (p: { task: ITask }) => (
       </RenderTooltip>
 
       <RenderTooltip tooltip='ویرایش'>
-        <Button size='icon-sm' variant='outline' onClick={() => makhteActions.openEditTaskDialog(p.task)}>
+        <Button
+          size='icon-sm'
+          variant='outline'
+          onClick={() => makhteActions.openEditTaskDialog(p.task)}
+        >
           <PencilSimpleIcon />
         </Button>
       </RenderTooltip>
 
       <RenderTooltip tooltip='حذف'>
-        <Button size='icon-sm' variant='outline' disabled>
+        <Button
+          size='icon-sm'
+          variant='outline'
+          onClick={() => makhteActions.openRemoveTaskDialog(p.task)}
+        >
           <TrashSimpleIcon />
         </Button>
       </RenderTooltip>
