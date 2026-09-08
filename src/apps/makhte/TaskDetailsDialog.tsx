@@ -39,11 +39,11 @@ export function TaskDetailsDialog() {
           </DialogHeader>
 
           <div className='flex flex-col gap-2'>
-            <h3 className='text-lg font-bold'>{task.title}</h3>
+            <h3 dir='auto' className='text-lg font-bold'>{task.title}</h3>
 
             <TaskStatusBadge status={task.status} />
 
-            <p className='text-sm text-muted-foreground'>
+            <p dir='auto' className='text-sm text-muted-foreground'>
               {task.description || '(بدون توضیحات)'}
             </p>
           </div>

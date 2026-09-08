@@ -1,10 +1,26 @@
 version: 1
 projectTitle: کائو
 tasks:
-  - id: abc123
-    title: بررسی مستندات
-    description: مطالعه مستندات فنی
+  - id: 43JF
+    title: Add global confirmation modal
+    description: Reusable confirmation dialog for destructive actions (delete, clear
+      all, etc.)
     status: Backlog
-  - id: def456
-    title: پیاده‌سازی داشبورد
+  - id: F983
+    title: Choose a data grid solution
+    description: Evaluate TanStack Table vs AG Grid for the task list
     status: Backlog
+  - id: AJB2
+    title: Upgrade to a data grid
+    description: Replace the current task list with a full-featured data grid
+      (sorting, filtering, etc.)
+    status: Backlog
+  - id: K409
+    title: Make the kanban view
+    description: 5-column Kanban board with quick status toggle (Backlog → Todo →
+      Doing → Waiting → Done)
+    status: Backlog
+  - id: SEE5
+    title: Fix task detail view direction
+    description: ""
+    status: Done
