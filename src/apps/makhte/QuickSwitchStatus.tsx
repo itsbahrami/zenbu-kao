@@ -1,4 +1,3 @@
-import { DotsThreeVerticalIcon } from '@phosphor-icons/react'
 import { cn } from 'cn'
 import { RenderTooltip } from '#/common/helpers/RenderTooltip'
 import {
@@ -22,17 +21,22 @@ export const QuickSwitchStatus = (p: {
   taskId: string
   currentStatus: TaskStatus
 }) => {
+  const Icon = getTaskStatusIcon(p.currentStatus)
+  const title = getTaskStatusTitle(p.currentStatus)
+  const className = cn(getTaskStatusTextClassName(p.currentStatus))
+
   const handleStatusChange = (newStatus: TaskStatus) => {
     makhteActions.updateTaskStatus(p.taskId, newStatus)
   }
 
   return (
     <DropdownMenu>
-      <RenderTooltip tooltip='تعویض سریع وضعیت'>
+      <RenderTooltip tooltip='وضعیت'>
         <DropdownMenuTrigger
           render={
-            <Button variant='outline' size='icon-xs'>
-              <DotsThreeVerticalIcon />
+            <Button variant='outline' size='xs' className={className}>
+              <Icon />
+              <span>{title}</span>
             </Button>
           }
         />

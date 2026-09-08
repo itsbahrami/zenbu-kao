@@ -9,7 +9,6 @@ import { TableCell, TableRow } from '#/common/ui/table'
 import type { ITask } from './ITask'
 import { QuickSwitchStatus } from './QuickSwitchStatus'
 import { makhteActions } from './store'
-import { TaskStatusBadge } from './TaskStatusBadge'
 
 export const TableTaskRow = (p: { task: ITask }) => (
   <TableRow>
@@ -18,10 +17,7 @@ export const TableTaskRow = (p: { task: ITask }) => (
     </TableCell>
 
     <TableCell>
-      <div className='flex items-center gap-1'>
-        <QuickSwitchStatus currentStatus={p.task.status} taskId={p.task.id} />
-        <TaskStatusBadge status={p.task.status} />
-      </div>
+      <QuickSwitchStatus currentStatus={p.task.status} taskId={p.task.id} />
     </TableCell>
 
     <TableCell className='text-xs text-muted-foreground flex items-center gap-1 max-w-max'>
