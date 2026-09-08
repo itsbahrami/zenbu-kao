@@ -7,6 +7,7 @@ import { RenderTooltip } from '#/common/helpers/RenderTooltip'
 import { Button } from '#/common/ui/button'
 import { TableCell, TableRow } from '#/common/ui/table'
 import type { ITask } from './ITask'
+import { makhteActions } from './store'
 import { TaskStatusBadge } from './TaskStatusBadge'
 
 export const TableTaskRow = (p: { task: ITask }) => (
@@ -25,7 +26,7 @@ export const TableTaskRow = (p: { task: ITask }) => (
       </RenderTooltip>
 
       <RenderTooltip tooltip='ویرایش'>
-        <Button size='icon-sm' variant='outline' disabled>
+        <Button size='icon-sm' variant='outline' onClick={() => makhteActions.openEditTaskDialog(p.task)}>
           <PencilSimpleIcon />
         </Button>
       </RenderTooltip>

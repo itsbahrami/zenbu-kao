@@ -23,23 +23,22 @@ const emptyValues: ITask = {
 
 export type TaskFormHandler = (
   values: ITask,
-  resetForm: () => void,
+  emptyForm: () => void,
 ) => Promise<void>
 
 type TaskFormProps = {
   defaultValues: ITask | null
   handler: TaskFormHandler
+  isEditMode: boolean
 }
 
 export const TaskForm = (p: TaskFormProps) => {
-  const isEditMode = p.defaultValues != null
-
   const form = useAppForm({
     defaultValues: p.defaultValues || emptyValues,
     async onSubmit(props) {
-      const resetForm = () => form.reset()
+      const emptyForm = () => form.reset(emptyValues)
 
-      await p.handler(props.value, resetForm)
+      await p.handler(props.value, emptyForm)
     },
   })
 
@@ -64,8 +63,8 @@ export const TaskForm = (p: TaskFormProps) => {
 
       <form.SimpleSubmitBtn
         className={buttonVariants({ class: 'w-full' })}
-        icon={isEditMode ? PencilSimpleIcon : PlusIcon}
-        title={isEditMode ? 'ویرایش تسک' : 'ایجاد تسک'}
+        icon={p.isEditMode ? PencilSimpleIcon : PlusIcon}
+        title={p.isEditMode ? 'ویرایش تسک' : 'ایجاد تسک'}
       />
     </form.AppForm>
   )

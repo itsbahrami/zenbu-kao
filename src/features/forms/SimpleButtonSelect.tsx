@@ -26,12 +26,14 @@ export function SimpleButtonSelect(p: SimpleButtonSelectProps) {
         {p.items.map(item => (
           <Button
             size='xs'
+            id={field.name}
+            name={field.name}
             key={item.value}
             variant={value === item.value ? 'default' : 'outline'}
             onClick={() => field.setValue(item.value)}
-          >
-            {item.label}
-          </Button>
+            nativeButton={false}
+            render={<input type='button'  value={item.label} />}
+          />
         ))}
       </div>
 

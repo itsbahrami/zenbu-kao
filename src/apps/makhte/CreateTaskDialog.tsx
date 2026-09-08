@@ -9,10 +9,10 @@ import { makhteActions, useCreateTaskOpened } from './store'
 import { Task } from './Task'
 import { TaskForm, type TaskFormHandler } from './TaskForm'
 
-const newTaskHandler: TaskFormHandler = async (values, resetForm) => {
+const newTaskHandler: TaskFormHandler = async (values, emptyForm) => {
   const newTask = Task.fromITask(values).setId(generateShortId())
   makhteActions.addTask(newTask)
-  resetForm()
+  emptyForm()
 }
 
 export const CreateTaskDialog = () => (
@@ -26,7 +26,7 @@ export const CreateTaskDialog = () => (
       </DialogHeader>
 
       <div className=''>
-        <TaskForm defaultValues={null} handler={newTaskHandler} />
+        <TaskForm isEditMode={false} defaultValues={null} handler={newTaskHandler} />
       </div>
     </DialogContent>
   </Dialog>

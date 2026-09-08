@@ -2,6 +2,7 @@ import { useFavicon } from '#/common/helpers/useFavicon'
 import { AppBody } from './AppBody'
 import { AppNav } from './AppNav'
 import { CreateTaskDialog } from './CreateTaskDialog'
+import { EditTaskDialog } from './EditTaskDialog'
 import { FAVICON } from './FAVICON'
 
 export function MakhtePage() {
@@ -12,6 +13,7 @@ export function MakhtePage() {
       <AppNav />
       <AppBody />
       <CreateTaskDialog />
+      <EditTaskDialog />
     </div>
   )
 }
