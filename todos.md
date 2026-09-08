@@ -1,0 +1,8 @@
+- Add global confirmation modal
+- Add delete functionality
+- Add edit functionality
+- Add view functionality
+- Choose a data grid solution: TanStack Table or AG Grid
+- Upgrade to a data grid
+- Add quick status switch functionality
+- Make the kanban view (with quick status toggle)
