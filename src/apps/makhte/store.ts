@@ -1,6 +1,7 @@
 import { createStore, useSelector } from '@tanstack/react-store'
+import type { ITask } from './ITask'
 import { SAMPLE_TASKS } from './SAMPLE_TASKS'
-import type { Task } from './Task'
+import { Task } from './Task'
 import type { TaskStatus } from './TaskStatus'
 
 export type ViewMode = 'table' | 'kanban'
@@ -10,6 +11,7 @@ interface MakhteStoreShape {
   viewMode: ViewMode
   isFileLoaded: boolean
   tasks: Task[]
+  isCreateTaskDialogOpen: boolean
 }
 
 const emptyState: MakhteStoreShape = {
@@ -17,6 +19,7 @@ const emptyState: MakhteStoreShape = {
   viewMode: 'table',
   isFileLoaded: false,
   tasks: SAMPLE_TASKS,
+  isCreateTaskDialogOpen: false,
 }
 
 const makhteStore = createStore(emptyState, a => ({
@@ -31,8 +34,15 @@ const makhteStore = createStore(emptyState, a => ({
   openFile: () => a.setState(p => ({ ...p, isFileLoaded: true })),
   closeFile: () => a.setState(p => ({ ...p, isFileLoaded: false })),
 
-  addTask: (task: Task) =>
-    a.setState(p => ({ ...p, tasks: [...p.tasks, task] })),
+  openCreateTaskDialog: () =>
+    a.setState(p => ({ ...p, isCreateTaskDialogOpen: true })),
+  closeCreateTaskDialog: () =>
+    a.setState(p => ({ ...p, isCreateTaskDialogOpen: false })),
+  setCreateTaskDialog: (isCreateTaskDialogOpen: boolean) =>
+    a.setState(p => ({ ...p, isCreateTaskDialogOpen })),
+
+  addTask: (task: ITask) =>
+    a.setState(p => ({ ...p, tasks: [...p.tasks, Task.fromITask(task)] })),
 
   removeTask: (id: string) =>
     a.setState(p => ({ ...p, tasks: p.tasks.filter(t => t.id !== id) })),
@@ -54,6 +64,8 @@ export const useProjectTitle = () =>
   useSelector(makhteStore, s => s.projectTitle)
 export const useViewMode = () => useSelector(makhteStore, s => s.viewMode)
 export const useFileLoaded = () => useSelector(makhteStore, s => s.isFileLoaded)
+export const useCreateTaskOpened = () =>
+  useSelector(makhteStore, s => s.isCreateTaskDialogOpen)
 export const useTableViewTasks = () => useSelector(makhteStore, s => s.tasks)
 export const useKanbanViewTasks = (): Record<TaskStatus, Task[]> =>
   useSelector(makhteStore, s => ({

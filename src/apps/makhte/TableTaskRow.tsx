@@ -11,7 +11,7 @@ import { TaskStatusBadge } from './TaskStatusBadge'
 
 export const TableTaskRow = (p: { task: ITask }) => (
   <TableRow>
-    <TableCell className='font-bold'>{p.task.title}</TableCell>
+    <TableCell className='text-muted-foreground'>{p.task.title}</TableCell>
 
     <TableCell>
       <TaskStatusBadge status={p.task.status} />

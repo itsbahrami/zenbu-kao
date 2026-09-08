@@ -38,6 +38,12 @@ export class Task implements ITask {
 
   clone = (): Task => new Task(this.getITask())
 
+  setId = (id: string): Task => {
+    this.id = id
+
+    return this
+  }
+
   setTitle = (title: string): Task => {
     this.title = title
 

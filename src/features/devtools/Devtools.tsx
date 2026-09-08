@@ -3,7 +3,6 @@ import { hotkeysDevtoolsPlugin } from '@tanstack/react-hotkeys-devtools'
 import { ReactQueryDevtoolsPanel } from '@tanstack/react-query-devtools'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 
-const config = { position: 'bottom-right' } as const
 const plugins = [
   hotkeysDevtoolsPlugin(),
   {
@@ -17,5 +16,5 @@ const plugins = [
 ]
 
 export const Devtools = () => (
-  <TanStackDevtools config={config} plugins={plugins} />
+  <TanStackDevtools config={{ position: 'bottom-right', triggerMode: 'floating' }} plugins={plugins} />
 )
