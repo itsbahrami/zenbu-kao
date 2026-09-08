@@ -14,6 +14,7 @@ const zTaskhteFileV1 = z.object({
   projectTitle: z.string(),
   tasks: z.array(zTask),
 })
+export type TakhteFileV1 = z.infer<typeof zTaskhteFileV1>
 
 export const zTakhteFile = z.discriminatedUnion('version', [zTaskhteFileV1])
 

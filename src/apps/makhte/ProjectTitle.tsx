@@ -31,6 +31,8 @@ export const ProjectTitle = () => {
       className='text-center max-w-60'
     />
   ) : (
-    <button type='button' onDoubleClick={startEditing} className={titleClass}>{projectTitle || placeholder}</button>
+    <button type='button' onDoubleClick={startEditing} className={titleClass}>
+      {projectTitle || placeholder}
+    </button>
   )
 }

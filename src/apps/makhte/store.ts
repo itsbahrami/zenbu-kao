@@ -1,6 +1,5 @@
 import { createStore, useSelector } from '@tanstack/react-store'
 import type { ITask } from './ITask'
-import { SAMPLE_TASKS } from './SAMPLE_TASKS'
 import { Task } from './Task'
 import type { TaskStatus } from './TaskStatus'
 
@@ -23,7 +22,7 @@ const emptyState: MakhteStoreShape = {
   viewMode: 'table',
   isFileLoaded: false,
   fileHandle: null,
-  tasks: SAMPLE_TASKS,
+  tasks: [],
   isCreateTaskDialogOpen: false,
   taskToView: null,
   taskToEdit: null,
@@ -43,7 +42,13 @@ const makhteStore = createStore(emptyState, a => ({
     a.setState(p => ({ ...p, isFileLoaded: true, fileHandle })),
 
   closeFile: () =>
-    a.setState(p => ({ ...p, isFileLoaded: false, fileHandle: null })),
+    a.setState(p => ({
+      ...p,
+      isFileLoaded: false,
+      fileHandle: null,
+      projectTitle: '',
+      tasks: [],
+    })),
 
   openCreateTaskDialog: () =>
     a.setState(p => ({ ...p, isCreateTaskDialogOpen: true })),
@@ -126,3 +131,5 @@ export const useKanbanViewTasks = (): Record<TaskStatus, Task[]> =>
     Waiting: s.tasks.filter(t => t.status === 'Waiting'),
     Done: s.tasks.filter(t => t.status === 'Done'),
   }))
+
+export const getStoreCopy = () => Object.freeze(makhteStore.get())
