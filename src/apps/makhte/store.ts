@@ -77,6 +77,14 @@ const makhteStore = createStore(emptyState, a => ({
       tasks: p.tasks.map(t => (t.id === id ? task : t)),
     })),
 
+  updateTaskStatus: (taskId: string, newStatus: TaskStatus) =>
+    a.setState(p => ({
+      ...p,
+      tasks: p.tasks.map(task =>
+        task.id === taskId ? task.setStatus(newStatus).clone() : task,
+      ),
+    })),
+
   reset: () => a.setState(() => emptyState),
 }))
 

@@ -1,3 +1,12 @@
+import {
+  CheckCircleIcon,
+  CircleIcon,
+  ClockIcon,
+  ListDashesIcon,
+  QuestionMarkIcon,
+  SpinnerIcon,
+} from '@phosphor-icons/react'
+
 export const TaskStatus = {
   /** Not yet refined or prioritized */
   Backlog: 'Backlog',
@@ -57,5 +66,27 @@ export const getTaskStatusTextClassName = (status: TaskStatus) => {
 
     default:
       return null
+  }
+}
+
+export const getTaskStatusIcon = (status: TaskStatus) => {
+  switch (status) {
+    case 'Backlog':
+      return ListDashesIcon
+
+    case 'Todo':
+      return CircleIcon
+
+    case 'Doing':
+      return SpinnerIcon
+
+    case 'Waiting':
+      return ClockIcon
+
+    case 'Done':
+      return CheckCircleIcon
+
+    default:
+      return QuestionMarkIcon
   }
 }
