@@ -10,6 +10,7 @@ interface MakhteStoreShape {
   projectTitle: string
   viewMode: ViewMode
   isFileLoaded: boolean
+  fileHandle: FileSystemFileHandle | null
   tasks: Task[]
   isCreateTaskDialogOpen: boolean
   taskToView: ITask | null
@@ -21,6 +22,7 @@ const emptyState: MakhteStoreShape = {
   projectTitle: '',
   viewMode: 'table',
   isFileLoaded: false,
+  fileHandle: null,
   tasks: SAMPLE_TASKS,
   isCreateTaskDialogOpen: false,
   taskToView: null,
@@ -37,9 +39,11 @@ const makhteStore = createStore(emptyState, a => ({
 
   setViewMode: (viewMode: ViewMode) => a.setState(p => ({ ...p, viewMode })),
 
-  openFile: () => a.setState(p => ({ ...p, isFileLoaded: true })),
+  openFile: (fileHandle: FileSystemFileHandle) =>
+    a.setState(p => ({ ...p, isFileLoaded: true, fileHandle })),
 
-  closeFile: () => a.setState(p => ({ ...p, isFileLoaded: false })),
+  closeFile: () =>
+    a.setState(p => ({ ...p, isFileLoaded: false, fileHandle: null })),
 
   openCreateTaskDialog: () =>
     a.setState(p => ({ ...p, isCreateTaskDialogOpen: true })),
@@ -64,6 +68,9 @@ const makhteStore = createStore(emptyState, a => ({
     a.setState(p => ({ ...p, taskToRemove })),
 
   closeRemoveTaskDialog: () => a.setState(p => ({ ...p, taskToRemove: null })),
+
+  setTasks: (tasks: ITask[]) =>
+    a.setState(p => ({ ...p, tasks: tasks.map(t => Task.fromITask(t)) })),
 
   addTask: (task: ITask) =>
     a.setState(p => ({ ...p, tasks: [...p.tasks, Task.fromITask(task)] })),

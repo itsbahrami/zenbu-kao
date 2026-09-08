@@ -66,6 +66,7 @@
     "@types/node": "^22.10.2",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
+    "@types/wicg-file-system-access": "^2023.10.7",
     "@vitejs/plugin-react": "^6.0.1",
     "shadcn": "^4.19.0",
     "typescript": "^6.0.2",

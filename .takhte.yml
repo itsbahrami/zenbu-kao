@@ -1,0 +1,10 @@
+version: 1
+projectTitle: "کائو"
+tasks:
+  - id: "abc123"
+    title: "بررسی مستندات"
+    description: "مطالعه مستندات فنی"
+    status: "Todo"
+  - id: "def456"
+    title: "پیاده‌سازی داشبورد"
+    status: "Doing"
