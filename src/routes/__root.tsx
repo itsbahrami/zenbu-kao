@@ -41,7 +41,7 @@ function RootDocument(p: PropsWithChildren) {
       </head>
 
       <body>
-        <TooltipProvider>{p.children}</TooltipProvider>
+        <TooltipProvider delay={500}>{p.children}</TooltipProvider>
 
         <ClientOnly>
           <ClientConfigurator />
