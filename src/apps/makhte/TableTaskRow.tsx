@@ -1,14 +1,7 @@
-import {
-  EyeIcon,
-  PencilSimpleIcon,
-  TrashSimpleIcon,
-} from '@phosphor-icons/react'
-import { RenderTooltip } from '#/common/helpers/RenderTooltip'
-import { Button } from '#/common/ui/button'
 import { TableCell, TableRow } from '#/common/ui/table'
 import type { ITask } from './ITask'
 import { QuickSwitchStatus } from './QuickSwitchStatus'
-import { makhteActions } from './store'
+import { TaskRowActions } from './TaskRowActions'
 
 export const TableTaskRow = (p: { task: ITask }) => (
   <TableRow>
@@ -20,36 +13,8 @@ export const TableTaskRow = (p: { task: ITask }) => (
       <QuickSwitchStatus currentStatus={p.task.status} taskId={p.task.id} />
     </TableCell>
 
-    <TableCell className='text-xs text-muted-foreground flex items-center gap-1 max-w-max'>
-      <RenderTooltip tooltip='جزئیات'>
-        <Button
-          size='icon-sm'
-          variant='outline'
-          onClick={() => makhteActions.openViewTaskDialog(p.task)}
-        >
-          <EyeIcon />
-        </Button>
-      </RenderTooltip>
-
-      <RenderTooltip tooltip='ویرایش'>
-        <Button
-          size='icon-sm'
-          variant='outline'
-          onClick={() => makhteActions.openEditTaskDialog(p.task)}
-        >
-          <PencilSimpleIcon />
-        </Button>
-      </RenderTooltip>
-
-      <RenderTooltip tooltip='حذف'>
-        <Button
-          size='icon-sm'
-          variant='outline'
-          onClick={() => makhteActions.openRemoveTaskDialog(p.task)}
-        >
-          <TrashSimpleIcon />
-        </Button>
-      </RenderTooltip>
+    <TableCell>
+      <TaskRowActions task={p.task} />
     </TableCell>
   </TableRow>
 )

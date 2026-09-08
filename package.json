@@ -38,6 +38,7 @@
     "@tanstack/react-router-ssr-query": "^1.167.1",
     "@tanstack/react-start": "^1.168.49",
     "@tanstack/react-store": "^0.11.1",
+    "@tanstack/react-table": "^9.2.4",
     "@tanstack/store": "^0.11.1",
     "axios": "^1.19.0",
     "class-variance-authority": "^0.7.1",
