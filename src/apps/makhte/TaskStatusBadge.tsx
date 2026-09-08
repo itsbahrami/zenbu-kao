@@ -1,4 +1,5 @@
 import { cn } from 'cn'
+import { RenderTooltip } from '#/common/helpers/RenderTooltip'
 import { Badge } from '#/common/ui/badge'
 import {
   getTaskStatusTextClassName,
@@ -7,10 +8,12 @@ import {
 } from './TaskStatus'
 
 export const TaskStatusBadge = (p: { status: TaskStatus }) => (
-  <Badge
-    variant='secondary'
-    className={cn(getTaskStatusTextClassName(p.status))}
-  >
-    {getTaskStatusTitle(p.status)}
-  </Badge>
+  <RenderTooltip tooltip={`وضعیت: ${getTaskStatusTitle(p.status)}`}>
+    <Badge
+      variant='secondary'
+      className={cn(getTaskStatusTextClassName(p.status))}
+    >
+      {getTaskStatusTitle(p.status)}
+    </Badge>
+  </RenderTooltip>
 )

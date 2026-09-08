@@ -22,7 +22,11 @@ export const TableTaskRow = (p: { task: ITask }) => (
 
     <TableCell className='text-xs text-muted-foreground flex items-center gap-1 max-w-max'>
       <RenderTooltip tooltip='جزئیات'>
-        <Button size='icon-sm' variant='outline' disabled>
+        <Button
+          size='icon-sm'
+          variant='outline'
+          onClick={() => makhteActions.openViewTaskDialog(p.task)}
+        >
           <EyeIcon />
         </Button>
       </RenderTooltip>

@@ -12,6 +12,7 @@ interface MakhteStoreShape {
   isFileLoaded: boolean
   tasks: Task[]
   isCreateTaskDialogOpen: boolean
+  taskToView: ITask | null
   taskToEdit: ITask | null
   taskToRemove: ITask | null
 }
@@ -22,6 +23,7 @@ const emptyState: MakhteStoreShape = {
   isFileLoaded: false,
   tasks: SAMPLE_TASKS,
   isCreateTaskDialogOpen: false,
+  taskToView: null,
   taskToEdit: null,
   taskToRemove: null,
 }
@@ -36,21 +38,31 @@ const makhteStore = createStore(emptyState, a => ({
   setViewMode: (viewMode: ViewMode) => a.setState(p => ({ ...p, viewMode })),
 
   openFile: () => a.setState(p => ({ ...p, isFileLoaded: true })),
+
   closeFile: () => a.setState(p => ({ ...p, isFileLoaded: false })),
 
   openCreateTaskDialog: () =>
     a.setState(p => ({ ...p, isCreateTaskDialogOpen: true })),
+
   closeCreateTaskDialog: () =>
     a.setState(p => ({ ...p, isCreateTaskDialogOpen: false })),
+
   setCreateTaskDialog: (isCreateTaskDialogOpen: boolean) =>
     a.setState(p => ({ ...p, isCreateTaskDialogOpen })),
 
+  openViewTaskDialog: (taskToView: ITask) =>
+    a.setState(p => ({ ...p, taskToView })),
+
+  closeViewTaskDialog: () => a.setState(p => ({ ...p, taskToView: null })),
+
   openEditTaskDialog: (taskToEdit: ITask) =>
     a.setState(p => ({ ...p, taskToEdit })),
+
   closeEditTaskDialog: () => a.setState(p => ({ ...p, taskToEdit: null })),
 
   openRemoveTaskDialog: (taskToRemove: ITask) =>
     a.setState(p => ({ ...p, taskToRemove })),
+
   closeRemoveTaskDialog: () => a.setState(p => ({ ...p, taskToRemove: null })),
 
   addTask: (task: ITask) =>
@@ -74,14 +86,23 @@ export const makhteActions = makhteStore.actions
 
 export const useProjectTitle = () =>
   useSelector(makhteStore, s => s.projectTitle)
+
 export const useViewMode = () => useSelector(makhteStore, s => s.viewMode)
+
 export const useFileLoaded = () => useSelector(makhteStore, s => s.isFileLoaded)
+
 export const useCreateTaskOpened = () =>
   useSelector(makhteStore, s => s.isCreateTaskDialogOpen)
+
+export const useTaskToView = () => useSelector(makhteStore, s => s.taskToView)
+
 export const useTaskToEdit = () => useSelector(makhteStore, s => s.taskToEdit)
+
 export const useTaskToRemove = () =>
   useSelector(makhteStore, s => s.taskToRemove)
+
 export const useTableViewTasks = () => useSelector(makhteStore, s => s.tasks)
+
 export const useKanbanViewTasks = (): Record<TaskStatus, Task[]> =>
   useSelector(makhteStore, s => ({
     Backlog: s.tasks.filter(t => t.status === 'Backlog'),
