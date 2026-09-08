@@ -1,11 +1,6 @@
 version: 1
 projectTitle: ゼンブ顔
 tasks:
-  - id: 43JF
-    title: Add global confirmation modal
-    description: Reusable confirmation dialog for destructive actions (delete, clear
-      all, etc.)
-    status: Backlog
   - id: F983
     title: Choose a data grid solution
     description: Evaluate TanStack Table vs AG Grid for the task list
