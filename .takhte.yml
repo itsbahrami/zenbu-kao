@@ -4,12 +4,12 @@ tasks:
   - id: F983
     title: Choose a data grid solution
     description: Evaluate TanStack Table vs AG Grid for the task list
-    status: Backlog
+    status: Done
   - id: AJB2
     title: Upgrade to a data grid
     description: Replace the current task list with a full-featured data grid
       (sorting, filtering, etc.)
-    status: Backlog
+    status: Done
   - id: K409
     title: Make the kanban view
     description: 5-column Kanban board with quick status toggle (Backlog → Todo →
