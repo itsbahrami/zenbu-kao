@@ -1,29 +1,3 @@
 version: 1
 projectTitle: ゼンブ顔
-tasks:
-  - id: F983
-    title: Choose a data grid solution
-    description: Evaluate TanStack Table vs AG Grid for the task list
-    status: Done
-  - id: AJB2
-    title: Upgrade to a data grid
-    description: Replace the current task list with a full-featured data grid
-      (sorting, filtering, etc.)
-    status: Done
-  - id: K409
-    title: Make the kanban view
-    description: 5-column Kanban board with quick status toggle (Backlog → Todo →
-      Doing → Waiting → Done)
-    status: Done
-  - id: SEE5
-    title: Fix task detail view direction
-    description: ""
-    status: Done
-  - id: 3ZSO
-    title: Add delete all done tasks button with confirmation
-    description: ""
-    status: Done
-  - id: LB38
-    title: Starter file download button...
-    description: ""
-    status: Done
+tasks: []
