@@ -5,8 +5,6 @@ import { makhteActions } from './store'
 import { Task } from './Task'
 import { zTakhteFile } from './zTakhteFile'
 
-const TASKS_FILE_NAME = '.takhte.yml'
-
 export async function openTakhteFile(): Promise<Result<void, string>> {
   try {
     if (!window.showOpenFilePicker) {
@@ -24,10 +22,6 @@ export async function openTakhteFile(): Promise<Result<void, string>> {
     })
 
     const file = await handle.getFile()
-
-    if (file.name !== TASKS_FILE_NAME) {
-      return err(`لطفاً فایل "${TASKS_FILE_NAME}" را انتخاب کنید.`)
-    }
 
     const text = await file.text()
     const parsedData = parseYaml(text)
