@@ -10,6 +10,7 @@ const columnHelper = createColumnHelper<DataTableFeatures, ITask>()
 const columns = columnHelper.columns([
   columnHelper.accessor('title', {
     header: p => <DataTableColumnHeader column={p.column} title='عنوان' />,
+    cell: p => <p dir='auto'>{p.row.original.title}</p>,
   }),
   columnHelper.accessor('status', {
     header: p => <DataTableColumnHeader column={p.column} title='وضعیت' />,

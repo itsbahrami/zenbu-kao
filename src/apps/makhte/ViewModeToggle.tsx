@@ -17,7 +17,6 @@ export const ViewModeToggle = () => (
       tooltip='نمای کانبان'
       isActive={useViewMode() === 'kanban'}
       onClick={() => makhteActions.setViewMode('kanban')}
-      disabled
     />
   </ButtonGroup>
 )
