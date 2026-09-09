@@ -8,10 +8,10 @@ const columnHelper = createColumnHelper<DataTableFeatures, ITask>()
 
 const columns = columnHelper.columns([
   columnHelper.accessor('title', {
-    header: p => <DataTableColumnHeader column={p.column} title='عنوان'  />,
+    header: p => <DataTableColumnHeader column={p.column} title='عنوان' />,
   }),
   columnHelper.accessor('status', {
-    header: p => <DataTableColumnHeader column={p.column} title='وضعیت'  />,
+    header: p => <DataTableColumnHeader column={p.column} title='وضعیت' />,
   }),
   columnHelper.display({
     id: 'actions',
@@ -22,6 +22,10 @@ const columns = columnHelper.columns([
 
 export const TasksTable = (p: { tasks: ITask[] }) => (
   <div className='w-full'>
-    <DataTable columns={columns} data={p.tasks} />
+    <DataTable
+      columns={columns}
+      data={p.tasks}
+      filter={{ columnName: 'title', placeholder: 'جستجوی عناوین تسک‌ها' }}
+    />
   </div>
 )
