@@ -6,7 +6,7 @@ export function downloadDefaultTakhteFile() {
   const defaultData: TakhteFileV1 = {
     version: 1,
     projectTitle: '',
-    tasks: [Task.create('کار نمونه')],
+    tasks: [Task.create('کار نمونه').getITask()],
   }
 
   const yamlString = stringifyYaml(defaultData)
