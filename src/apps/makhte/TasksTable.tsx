@@ -13,7 +13,12 @@ const columns = columnHelper.columns([
   }),
   columnHelper.accessor('status', {
     header: p => <DataTableColumnHeader column={p.column} title='وضعیت' />,
-    cell: p => <QuickSwitchStatus taskId={p.row.original.id} currentStatus={p.row.original.status} />
+    cell: p => (
+      <QuickSwitchStatus
+        taskId={p.row.original.id}
+        currentStatus={p.row.original.status}
+      />
+    ),
   }),
   columnHelper.display({
     id: 'actions',
