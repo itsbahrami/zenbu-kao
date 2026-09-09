@@ -1,7 +1,7 @@
 import { createStore, useSelector } from '@tanstack/react-store'
 import type { ITask } from './ITask'
 import { Task } from './Task'
-import type { TaskStatus } from './TaskStatus'
+import { TaskStatus } from './TaskStatus'
 
 export type ViewMode = 'table' | 'kanban'
 
@@ -82,6 +82,12 @@ const makhteStore = createStore(emptyState, a => ({
 
   removeTask: (id: string) =>
     a.setState(p => ({ ...p, tasks: p.tasks.filter(t => t.id !== id) })),
+
+  removeDoneTasks: () =>
+    a.setState(p => ({
+      ...p,
+      tasks: p.tasks.filter(t => t.status !== TaskStatus.Done),
+    })),
 
   replaceTask: (id: string, task: Task) =>
     a.setState(p => ({
