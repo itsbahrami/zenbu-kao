@@ -1,4 +1,10 @@
-import { type ColumnDef, type RowData, useTable } from '@tanstack/react-table'
+import {
+  type ColumnDef,
+  type RowData,
+  type SortingState,
+  useTable,
+} from '@tanstack/react-table'
+import { useState } from 'react'
 import {
   Table,
   TableBody,
@@ -15,10 +21,14 @@ interface DataTableProps<TData extends RowData> {
 }
 
 export function DataTable<TData extends RowData>(p: DataTableProps<TData>) {
+  const [sorting, setSorting] = useState<SortingState>([])
+
   const table = useTable({
     features: dataTableFeatures,
     data: p.data,
     columns: p.columns,
+    state: { sorting },
+    onSortingChange: setSorting,
   })
 
   return (
@@ -55,7 +65,10 @@ export function DataTable<TData extends RowData>(p: DataTableProps<TData>) {
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan={p.columns.length} className='h-24 text-center'>
+              <TableCell
+                colSpan={p.columns.length}
+                className='h-24 text-center'
+              >
                 (خالی)
               </TableCell>
             </TableRow>
