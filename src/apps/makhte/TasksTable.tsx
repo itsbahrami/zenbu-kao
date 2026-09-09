@@ -2,6 +2,7 @@ import { createColumnHelper } from '@tanstack/react-table'
 import { DataTable, type DataTableFeatures } from '#/features/DataTable'
 import { DataTableColumnHeader } from '#/features/DataTable/DataTableColumnHeader'
 import type { ITask } from './ITask'
+import { QuickSwitchStatus } from './QuickSwitchStatus'
 import { TaskRowActions } from './TaskRowActions'
 
 const columnHelper = createColumnHelper<DataTableFeatures, ITask>()
@@ -12,6 +13,7 @@ const columns = columnHelper.columns([
   }),
   columnHelper.accessor('status', {
     header: p => <DataTableColumnHeader column={p.column} title='وضعیت' />,
+    cell: p => <QuickSwitchStatus taskId={p.row.original.id} currentStatus={p.row.original.status} />
   }),
   columnHelper.display({
     id: 'actions',
