@@ -9,6 +9,7 @@ export const KanbanTaskCard = (p: { task: Task }) => (
       currentStatus={p.task.status}
       taskId={p.task.id}
       btnSize='icon'
+      btnClass='h-full'
       variant='ghost'
       iconClass='size-5'
     />
@@ -16,7 +17,7 @@ export const KanbanTaskCard = (p: { task: Task }) => (
     <Button
       dir='auto'
       variant='ghost'
-      className='flex-1 justify-start'
+      className='flex-1 justify-start whitespace-normal text-start h-max py-2'
       onClick={() => makhteActions.openViewTaskDialog(p.task)}
     >
       {p.task.title}

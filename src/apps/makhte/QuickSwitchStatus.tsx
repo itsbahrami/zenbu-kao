@@ -24,10 +24,11 @@ export const QuickSwitchStatus = (p: {
   btnSize?: VariantProps<typeof buttonVariants>['size']
   iconClass?: string
   variant?: VariantProps<typeof buttonVariants>['variant']
+  btnClass?: string
 }) => {
   const Icon = getTaskStatusIcon(p.currentStatus)
   const title = getTaskStatusTitle(p.currentStatus)
-  const className = cn(getTaskStatusTextClassName(p.currentStatus))
+  const className = cn(getTaskStatusTextClassName(p.currentStatus), p.btnClass)
 
   const handleStatusChange = (newStatus: TaskStatus) => {
     makhteActions.updateTaskStatus(p.taskId, newStatus)

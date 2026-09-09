@@ -36,12 +36,12 @@ export function RemoveTaskDialog() {
           </DialogDescription>
         </DialogHeader>
 
-        <div className='py-2 text-sm text-muted-foreground'>
-          <span>تسک: </span>
+        <div className='py-2 text-xs text-muted-foreground'>
+          <p>تسک: </p>
 
-          <span className='font-medium text-foreground'>
+          <p className='text-foreground' dir='auto'>
             {taskToRemove?.title || '-'}
-          </span>
+          </p>
         </div>
 
         <DialogFooter className='gap-2'>

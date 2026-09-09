@@ -14,7 +14,7 @@ tasks:
     title: Make the kanban view
     description: 5-column Kanban board with quick status toggle (Backlog → Todo →
       Doing → Waiting → Done)
-    status: Backlog
+    status: Done
   - id: SEE5
     title: Fix task detail view direction
     description: ""
