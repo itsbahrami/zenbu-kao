@@ -19,3 +19,11 @@ tasks:
     title: Fix task detail view direction
     description: ""
     status: Done
+  - id: 3ZSO
+    title: Add delete all done tasks button with confirmation
+    description: ""
+    status: Todo
+  - id: LB38
+    title: Starter file download button...
+    description: ""
+    status: Todo
