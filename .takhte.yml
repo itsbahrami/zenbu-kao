@@ -22,7 +22,7 @@ tasks:
   - id: 3ZSO
     title: Add delete all done tasks button with confirmation
     description: ""
-    status: Todo
+    status: Done
   - id: LB38
     title: Starter file download button...
     description: ""
