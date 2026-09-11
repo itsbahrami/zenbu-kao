@@ -14,9 +14,17 @@ export const ClientConfigurator = () => {
   useEffect(() => {
     client.setConfig({
       baseUrl: API_BASE_URL,
-      // throwOnError: false,
-      auth: () => accessToken || undefined,
     })
+  }, [])
+
+  useEffect(() => {
+    const id = client.interceptors.request.use((request, _options) => {
+      request.headers.set('Authorization', `Bearer ${accessToken}`)
+
+      return request
+    })
+
+    return () => client.interceptors.request.eject(id)
   }, [accessToken])
 
   return null

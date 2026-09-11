@@ -21,6 +21,8 @@ import { Route as AppsAzkhakRouteImport } from './routes/apps/azkhak'
 import { Route as AppsMakhteRouteImport } from './routes/apps/makhte'
 import { Route as AppsMatahangRouteImport } from './routes/apps/matahang'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
+import { Route as AppsMatahangIndexRouteImport } from './routes/apps/matahang.index'
+import { Route as AppsMatahangNewRouteImport } from './routes/apps/matahang.new'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -82,6 +84,16 @@ const DashboardIndexRoute = DashboardIndexRouteImport.update({
   path: '/dashboard/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppsMatahangIndexRoute = AppsMatahangIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppsMatahangRoute,
+} as any)
+const AppsMatahangNewRoute = AppsMatahangNewRouteImport.update({
+  id: '/new',
+  path: '/new',
+  getParentRoute: () => AppsMatahangRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -93,9 +105,11 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/apps/azkhak': typeof AppsAzkhakRoute
   '/apps/makhte': typeof AppsMakhteRoute
-  '/apps/matahang': typeof AppsMatahangRoute
+  '/apps/matahang': typeof AppsMatahangRouteWithChildren
   '/apps/': typeof AppsIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/apps/matahang/new': typeof AppsMatahangNewRoute
+  '/apps/matahang/': typeof AppsMatahangIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -107,9 +121,10 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/apps/azkhak': typeof AppsAzkhakRoute
   '/apps/makhte': typeof AppsMakhteRoute
-  '/apps/matahang': typeof AppsMatahangRoute
   '/apps': typeof AppsIndexRoute
   '/dashboard': typeof DashboardIndexRoute
+  '/apps/matahang/new': typeof AppsMatahangNewRoute
+  '/apps/matahang': typeof AppsMatahangIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -122,9 +137,11 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/apps/azkhak': typeof AppsAzkhakRoute
   '/apps/makhte': typeof AppsMakhteRoute
-  '/apps/matahang': typeof AppsMatahangRoute
+  '/apps/matahang': typeof AppsMatahangRouteWithChildren
   '/apps/': typeof AppsIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/apps/matahang/new': typeof AppsMatahangNewRoute
+  '/apps/matahang/': typeof AppsMatahangIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -141,6 +158,8 @@ export interface FileRouteTypes {
     | '/apps/matahang'
     | '/apps/'
     | '/dashboard/'
+    | '/apps/matahang/new'
+    | '/apps/matahang/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -152,9 +171,10 @@ export interface FileRouteTypes {
     | '/terms'
     | '/apps/azkhak'
     | '/apps/makhte'
-    | '/apps/matahang'
     | '/apps'
     | '/dashboard'
+    | '/apps/matahang/new'
+    | '/apps/matahang'
   id:
     | '__root__'
     | '/'
@@ -169,6 +189,8 @@ export interface FileRouteTypes {
     | '/apps/matahang'
     | '/apps/'
     | '/dashboard/'
+    | '/apps/matahang/new'
+    | '/apps/matahang/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -181,7 +203,7 @@ export interface RootRouteChildren {
   TermsRoute: typeof TermsRoute
   AppsAzkhakRoute: typeof AppsAzkhakRoute
   AppsMakhteRoute: typeof AppsMakhteRoute
-  AppsMatahangRoute: typeof AppsMatahangRoute
+  AppsMatahangRoute: typeof AppsMatahangRouteWithChildren
   AppsIndexRoute: typeof AppsIndexRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
 }
@@ -272,8 +294,36 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/apps/matahang/': {
+      id: '/apps/matahang/'
+      path: '/'
+      fullPath: '/apps/matahang/'
+      preLoaderRoute: typeof AppsMatahangIndexRouteImport
+      parentRoute: typeof AppsMatahangRoute
+    }
+    '/apps/matahang/new': {
+      id: '/apps/matahang/new'
+      path: '/new'
+      fullPath: '/apps/matahang/new'
+      preLoaderRoute: typeof AppsMatahangNewRouteImport
+      parentRoute: typeof AppsMatahangRoute
+    }
   }
 }
+
+interface AppsMatahangRouteChildren {
+  AppsMatahangNewRoute: typeof AppsMatahangNewRoute
+  AppsMatahangIndexRoute: typeof AppsMatahangIndexRoute
+}
+
+const AppsMatahangRouteChildren: AppsMatahangRouteChildren = {
+  AppsMatahangNewRoute: AppsMatahangNewRoute,
+  AppsMatahangIndexRoute: AppsMatahangIndexRoute,
+}
+
+const AppsMatahangRouteWithChildren = AppsMatahangRoute._addFileChildren(
+  AppsMatahangRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -285,7 +335,7 @@ const rootRouteChildren: RootRouteChildren = {
   TermsRoute: TermsRoute,
   AppsAzkhakRoute: AppsAzkhakRoute,
   AppsMakhteRoute: AppsMakhteRoute,
-  AppsMatahangRoute: AppsMatahangRoute,
+  AppsMatahangRoute: AppsMatahangRouteWithChildren,
   AppsIndexRoute: AppsIndexRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 }
