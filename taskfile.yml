@@ -17,3 +17,6 @@ tasks:
   sync:
     dotenv: ['.env.development']
     cmd: curl -k {{.VITE_API_BASE_URL}}/openapi.yml -o ./src/features/api/openapi.yml
+    requires:
+      vars:
+        - VITE_API_BASE_URL

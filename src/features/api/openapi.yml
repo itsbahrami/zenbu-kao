@@ -201,8 +201,189 @@ paths:
           description: No Content
         '404':
           description: Not Found
+  /api/matahang/aahamatns:
+    get:
+      tags:
+        - Aahamatns
+      summary: Get all Aahamatns
+      operationId: GetAllAahamatns
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AahamatnResponse'
+    post:
+      tags:
+        - Aahamatns
+      summary: Create a new Aahamatn
+      operationId: CreateAahamatn
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAahamatnCommand'
+        required: true
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AahamatnResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+  '/api/matahang/aahamatns/{id}':
+    put:
+      tags:
+        - Aahamatns
+      summary: Update an existing Aahamatn
+      operationId: UpdateAahamatn
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAahamatnCommand'
+        required: true
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+        '404':
+          description: Not Found
+    delete:
+      tags:
+        - Aahamatns
+      summary: Delete an Aahamatn
+      operationId: DeleteAahamatn
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '401':
+          description: Unauthorized
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '204':
+          description: No Content
+        '404':
+          description: Not Found
 components:
   schemas:
+    AahamatnResponse:
+      required:
+        - id
+        - title
+        - language
+        - lyrics
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        artist:
+          type:
+            - 'null'
+            - string
+        language:
+          $ref: '#/components/schemas/Language'
+        lyrics:
+          type: string
+        color:
+          type:
+            - 'null'
+            - string
+        audioUrl:
+          type:
+            - 'null'
+            - string
+        sourceUrl:
+          type:
+            - 'null'
+            - string
+        updatedAt:
+          type:
+            - 'null'
+            - string
+          format: date-time
+    CreateAahamatnCommand:
+      required:
+        - title
+        - language
+        - lyrics
+        - artist
+        - color
+        - audioUrl
+        - sourceUrl
+      type: object
+      properties:
+        title:
+          type: string
+        language:
+          $ref: '#/components/schemas/Language'
+        lyrics:
+          type: string
+        artist:
+          type:
+            - 'null'
+            - string
+        color:
+          type:
+            - 'null'
+            - string
+        audioUrl:
+          type:
+            - 'null'
+            - string
+        sourceUrl:
+          type:
+            - 'null'
+            - string
     CreateJottingCommand:
       required:
         - title
@@ -265,6 +446,8 @@ components:
             - 'null'
             - string
           format: date-time
+    Language:
+      type: integer
     LoginCommand:
       required:
         - email
@@ -351,6 +534,43 @@ components:
         expiresAt:
           type: string
           format: date-time
+    UpdateAahamatnCommand:
+      required:
+        - id
+        - title
+        - language
+        - lyrics
+        - artist
+        - color
+        - audioUrl
+        - sourceUrl
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        language:
+          $ref: '#/components/schemas/Language'
+        lyrics:
+          type: string
+        artist:
+          type:
+            - 'null'
+            - string
+        color:
+          type:
+            - 'null'
+            - string
+        audioUrl:
+          type:
+            - 'null'
+            - string
+        sourceUrl:
+          type:
+            - 'null'
+            - string
     UpdateJottingRequest:
       required:
         - title
@@ -380,3 +600,4 @@ tags:
   - name: Temp
   - name: Identity
   - name: Jottings
+  - name: Aahamatns
