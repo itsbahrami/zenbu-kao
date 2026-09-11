@@ -39,6 +39,14 @@ function RouteComponent() {
           <img className='size-16' alt='' src='/apps/Makhte.png' />
           <span className=''>مخته</span>
         </Link>
+
+        <Link
+          to='/apps/matahang'
+          className='hover:bg-rose-950/50 hover:text-rose-300 transition-all p-4 rounded-md flex flex-col items-center gap-2'
+        >
+          <img className='size-16' alt='' src='/apps/Matahang.png' />
+          <span className=''>متهنگ</span>
+        </Link>
       </div>
     </div>
   )

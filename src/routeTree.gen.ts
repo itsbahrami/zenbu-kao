@@ -19,6 +19,7 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as AppsIndexRouteImport } from './routes/apps/index'
 import { Route as AppsAzkhakRouteImport } from './routes/apps/azkhak'
 import { Route as AppsMakhteRouteImport } from './routes/apps/makhte'
+import { Route as AppsMatahangRouteImport } from './routes/apps/matahang'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
 
 const IndexRoute = IndexRouteImport.update({
@@ -71,6 +72,11 @@ const AppsMakhteRoute = AppsMakhteRouteImport.update({
   path: '/apps/makhte',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppsMatahangRoute = AppsMatahangRouteImport.update({
+  id: '/apps/matahang',
+  path: '/apps/matahang',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
   id: '/dashboard/',
   path: '/dashboard/',
@@ -87,6 +93,7 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/apps/azkhak': typeof AppsAzkhakRoute
   '/apps/makhte': typeof AppsMakhteRoute
+  '/apps/matahang': typeof AppsMatahangRoute
   '/apps/': typeof AppsIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
@@ -100,6 +107,7 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/apps/azkhak': typeof AppsAzkhakRoute
   '/apps/makhte': typeof AppsMakhteRoute
+  '/apps/matahang': typeof AppsMatahangRoute
   '/apps': typeof AppsIndexRoute
   '/dashboard': typeof DashboardIndexRoute
 }
@@ -114,6 +122,7 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/apps/azkhak': typeof AppsAzkhakRoute
   '/apps/makhte': typeof AppsMakhteRoute
+  '/apps/matahang': typeof AppsMatahangRoute
   '/apps/': typeof AppsIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
@@ -129,6 +138,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/apps/azkhak'
     | '/apps/makhte'
+    | '/apps/matahang'
     | '/apps/'
     | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
@@ -142,6 +152,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/apps/azkhak'
     | '/apps/makhte'
+    | '/apps/matahang'
     | '/apps'
     | '/dashboard'
   id:
@@ -155,6 +166,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/apps/azkhak'
     | '/apps/makhte'
+    | '/apps/matahang'
     | '/apps/'
     | '/dashboard/'
   fileRoutesById: FileRoutesById
@@ -169,6 +181,7 @@ export interface RootRouteChildren {
   TermsRoute: typeof TermsRoute
   AppsAzkhakRoute: typeof AppsAzkhakRoute
   AppsMakhteRoute: typeof AppsMakhteRoute
+  AppsMatahangRoute: typeof AppsMatahangRoute
   AppsIndexRoute: typeof AppsIndexRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
 }
@@ -245,6 +258,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppsMakhteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/apps/matahang': {
+      id: '/apps/matahang'
+      path: '/apps/matahang'
+      fullPath: '/apps/matahang'
+      preLoaderRoute: typeof AppsMatahangRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard/': {
       id: '/dashboard/'
       path: '/dashboard'
@@ -265,6 +285,7 @@ const rootRouteChildren: RootRouteChildren = {
   TermsRoute: TermsRoute,
   AppsAzkhakRoute: AppsAzkhakRoute,
   AppsMakhteRoute: AppsMakhteRoute,
+  AppsMatahangRoute: AppsMatahangRoute,
   AppsIndexRoute: AppsIndexRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 }
