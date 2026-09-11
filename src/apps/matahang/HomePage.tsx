@@ -5,5 +5,5 @@ import { AahamatnsTable } from './AahamatnsTable'
 export function HomePage() {
   const aahamatnsQ = useQuery(getAllAahamatnsOptions())
 
-  return <AahamatnsTable aahamatns={aahamatnsQ.data || []} />
+  return <AahamatnsTable aahamatns={aahamatnsQ.data?.items || []} />
 }

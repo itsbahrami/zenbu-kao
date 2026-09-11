@@ -6,14 +6,14 @@ import {
 import { createColumnHelper } from '@tanstack/react-table'
 import { RenderTooltip } from '#/common/helpers/RenderTooltip'
 import { Button } from '#/common/ui/button'
-import type { AahamatnResponse } from '#/features/api/client'
+import type { AahamatnMinimalResponse } from '#/features/api/client'
 import { useIsLoggedIn } from '#/features/auth/store'
 import { DataTable, type DataTableFeatures } from '#/features/DataTable'
 import { DataTableColumnHeader } from '#/features/DataTable/DataTableColumnHeader'
 import { languageValueToMeta } from './Language'
 import { matahangActions } from './store'
 
-const columnHelper = createColumnHelper<DataTableFeatures, AahamatnResponse>()
+const columnHelper = createColumnHelper<DataTableFeatures, AahamatnMinimalResponse>()
 
 const columns = columnHelper.columns([
   columnHelper.accessor('title', {
@@ -47,7 +47,7 @@ const columns = columnHelper.columns([
   }),
 ])
 
-export const AahamatnsTable = (p: { aahamatns: AahamatnResponse[] }) => (
+export const AahamatnsTable = (p: { aahamatns: AahamatnMinimalResponse[] }) => (
   <div className='w-full'>
     <DataTable
       columns={columns}
@@ -57,7 +57,7 @@ export const AahamatnsTable = (p: { aahamatns: AahamatnResponse[] }) => (
   </div>
 )
 
-function AahamatnRowActions(p: { aahamatn: AahamatnResponse }) {
+function AahamatnRowActions(p: { aahamatn: AahamatnMinimalResponse }) {
   const isLoggedIn = useIsLoggedIn()
 
   return (
