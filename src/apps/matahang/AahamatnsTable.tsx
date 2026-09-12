@@ -72,9 +72,16 @@ function AahamatnRowActions(p: { aahamatn: AahamatnMinimalResponse }) {
   return (
     <div className='flex items-center gap-1 max-w-max'>
       <RenderTooltip tooltip='جزئیات'>
-        <Button size='icon-sm' variant='outline' disabled>
-          <PlaylistIcon />
-        </Button>
+        <Button
+          size='icon-sm'
+          variant='outline'
+          nativeButton={false}
+          render={
+            <Link to='/apps/matahang/$id' params={{ id: p.aahamatn.id }}>
+              <PlaylistIcon />
+            </Link>
+          }
+        />
       </RenderTooltip>
 
       {isLoggedIn && (

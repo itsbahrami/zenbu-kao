@@ -23,6 +23,7 @@ import { Route as AppsMatahangRouteImport } from './routes/apps/matahang'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
 import { Route as AppsMatahangIndexRouteImport } from './routes/apps/matahang.index'
 import { Route as AppsMatahangNewRouteImport } from './routes/apps/matahang.new'
+import { Route as AppsMatahangIdIndexRouteImport } from './routes/apps/matahang.$id.index'
 import { Route as AppsMatahangIdEditRouteImport } from './routes/apps/matahang.$id.edit'
 
 const IndexRoute = IndexRouteImport.update({
@@ -95,6 +96,11 @@ const AppsMatahangNewRoute = AppsMatahangNewRouteImport.update({
   path: '/new',
   getParentRoute: () => AppsMatahangRoute,
 } as any)
+const AppsMatahangIdIndexRoute = AppsMatahangIdIndexRouteImport.update({
+  id: '/$id/',
+  path: '/$id/',
+  getParentRoute: () => AppsMatahangRoute,
+} as any)
 const AppsMatahangIdEditRoute = AppsMatahangIdEditRouteImport.update({
   id: '/$id/edit',
   path: '/$id/edit',
@@ -117,6 +123,7 @@ export interface FileRoutesByFullPath {
   '/apps/matahang/new': typeof AppsMatahangNewRoute
   '/apps/matahang/': typeof AppsMatahangIndexRoute
   '/apps/matahang/$id/edit': typeof AppsMatahangIdEditRoute
+  '/apps/matahang/$id/': typeof AppsMatahangIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -133,6 +140,7 @@ export interface FileRoutesByTo {
   '/apps/matahang/new': typeof AppsMatahangNewRoute
   '/apps/matahang': typeof AppsMatahangIndexRoute
   '/apps/matahang/$id/edit': typeof AppsMatahangIdEditRoute
+  '/apps/matahang/$id': typeof AppsMatahangIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -151,6 +159,7 @@ export interface FileRoutesById {
   '/apps/matahang/new': typeof AppsMatahangNewRoute
   '/apps/matahang/': typeof AppsMatahangIndexRoute
   '/apps/matahang/$id/edit': typeof AppsMatahangIdEditRoute
+  '/apps/matahang/$id/': typeof AppsMatahangIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -170,6 +179,7 @@ export interface FileRouteTypes {
     | '/apps/matahang/new'
     | '/apps/matahang/'
     | '/apps/matahang/$id/edit'
+    | '/apps/matahang/$id/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -186,6 +196,7 @@ export interface FileRouteTypes {
     | '/apps/matahang/new'
     | '/apps/matahang'
     | '/apps/matahang/$id/edit'
+    | '/apps/matahang/$id'
   id:
     | '__root__'
     | '/'
@@ -203,6 +214,7 @@ export interface FileRouteTypes {
     | '/apps/matahang/new'
     | '/apps/matahang/'
     | '/apps/matahang/$id/edit'
+    | '/apps/matahang/$id/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -320,6 +332,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppsMatahangNewRouteImport
       parentRoute: typeof AppsMatahangRoute
     }
+    '/apps/matahang/$id/': {
+      id: '/apps/matahang/$id/'
+      path: '/$id'
+      fullPath: '/apps/matahang/$id/'
+      preLoaderRoute: typeof AppsMatahangIdIndexRouteImport
+      parentRoute: typeof AppsMatahangRoute
+    }
     '/apps/matahang/$id/edit': {
       id: '/apps/matahang/$id/edit'
       path: '/$id/edit'
@@ -334,12 +353,14 @@ interface AppsMatahangRouteChildren {
   AppsMatahangNewRoute: typeof AppsMatahangNewRoute
   AppsMatahangIndexRoute: typeof AppsMatahangIndexRoute
   AppsMatahangIdEditRoute: typeof AppsMatahangIdEditRoute
+  AppsMatahangIdIndexRoute: typeof AppsMatahangIdIndexRoute
 }
 
 const AppsMatahangRouteChildren: AppsMatahangRouteChildren = {
   AppsMatahangNewRoute: AppsMatahangNewRoute,
   AppsMatahangIndexRoute: AppsMatahangIndexRoute,
   AppsMatahangIdEditRoute: AppsMatahangIdEditRoute,
+  AppsMatahangIdIndexRoute: AppsMatahangIdIndexRoute,
 }
 
 const AppsMatahangRouteWithChildren = AppsMatahangRoute._addFileChildren(

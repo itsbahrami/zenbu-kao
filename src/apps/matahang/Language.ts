@@ -15,14 +15,52 @@ export type LanguageMeta = {
   key: Language
   label: string
   value: number
+  fontClass: string
+  dir: 'ltr' | 'rtl'
+  lang: string
 }
 
 export const languages: Record<Language, LanguageMeta> = {
-  Arabic: { key: Language.Arabic, label: 'العربیة', value: 4 },
-  English: { key: Language.English, label: 'English', value: 2 },
-  Japanese: { key: Language.Japanese, label: '日本語', value: 3 },
-  Other: { key: Language.Other, label: '-', value: 0 },
-  Persian: { key: Language.Persian, label: 'فارسی', value: 1 },
+  Arabic: {
+    key: Language.Arabic,
+    label: 'العربیة',
+    value: 4,
+    dir: 'rtl',
+    fontClass: 'font-fa',
+    lang: 'ar',
+  },
+  English: {
+    key: Language.English,
+    label: 'English',
+    value: 2,
+    dir: 'ltr',
+    fontClass: 'font-ja',
+    lang: 'en',
+  },
+  Japanese: {
+    key: Language.Japanese,
+    label: '日本語',
+    value: 3,
+    dir: 'ltr',
+    fontClass: 'font-ja',
+    lang: 'ja',
+  },
+  Other: {
+    key: Language.Other,
+    label: '-',
+    value: 0,
+    dir: 'rtl',
+    fontClass: 'font-fa',
+    lang: 'fa',
+  },
+  Persian: {
+    key: Language.Persian,
+    label: 'فارسی',
+    value: 1,
+    dir: 'rtl',
+    fontClass: 'font-fa',
+    lang: 'fa',
+  },
 }
 
 export const languageValueToMeta = (value: number): LanguageMeta =>
