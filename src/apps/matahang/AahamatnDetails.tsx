@@ -4,8 +4,10 @@ import {
   CopyIcon,
   LinkSimpleIcon,
   MusicNoteIcon,
+  PrinterIcon,
   TranslateIcon,
 } from '@phosphor-icons/react'
+import { Link } from '@tanstack/react-router'
 import { cn } from 'cn'
 import type { ReactNode } from 'react'
 import { RenderTooltip } from '#/common/helpers/RenderTooltip'
@@ -25,8 +27,16 @@ const copy = (content: string) =>
   )
 
 export function AahamatnDetails(p: { aahamatn: AahamatnFullResponse }) {
-  const { language, lyrics, title, artist, audioUrl, sourceUrl, updatedAt } =
-    p.aahamatn
+  const {
+    id,
+    language,
+    lyrics,
+    title,
+    artist,
+    audioUrl,
+    sourceUrl,
+    updatedAt,
+  } = p.aahamatn
 
   const lang = languageValueToMeta(language)
   const copyPageUrl = () => copy(window.location.href)
@@ -69,6 +79,23 @@ export function AahamatnDetails(p: { aahamatn: AahamatnFullResponse }) {
             <ArrowSquareOutIcon />
           </ExternalLink>
         )}
+
+        <RenderTooltip tooltip='پرینت'>
+          <Button
+            variant='outline'
+            size='icon'
+            nativeButton={false}
+            render={
+              <Link
+                target='_blank'
+                to='/apps/aahamatn/$id/print'
+                params={{ id }}
+              >
+                <PrinterIcon />
+              </Link>
+            }
+          />
+        </RenderTooltip>
 
         <RenderTooltip tooltip='کپی لینک صفحه'>
           <Button variant='outline' size='icon' onClick={copyPageUrl}>

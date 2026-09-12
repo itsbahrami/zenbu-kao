@@ -23,6 +23,7 @@ import { Route as AppsMatahangRouteImport } from './routes/apps/matahang'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
 import { Route as AppsMatahangIndexRouteImport } from './routes/apps/matahang.index'
 import { Route as AppsMatahangNewRouteImport } from './routes/apps/matahang.new'
+import { Route as AppsAahamatnIdPrintRouteImport } from './routes/apps/aahamatn.$id.print'
 import { Route as AppsMatahangIdIndexRouteImport } from './routes/apps/matahang.$id.index'
 import { Route as AppsMatahangIdEditRouteImport } from './routes/apps/matahang.$id.edit'
 
@@ -96,6 +97,11 @@ const AppsMatahangNewRoute = AppsMatahangNewRouteImport.update({
   path: '/new',
   getParentRoute: () => AppsMatahangRoute,
 } as any)
+const AppsAahamatnIdPrintRoute = AppsAahamatnIdPrintRouteImport.update({
+  id: '/apps/aahamatn/$id/print',
+  path: '/apps/aahamatn/$id/print',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppsMatahangIdIndexRoute = AppsMatahangIdIndexRouteImport.update({
   id: '/$id/',
   path: '/$id/',
@@ -122,6 +128,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/': typeof DashboardIndexRoute
   '/apps/matahang/new': typeof AppsMatahangNewRoute
   '/apps/matahang/': typeof AppsMatahangIndexRoute
+  '/apps/aahamatn/$id/print': typeof AppsAahamatnIdPrintRoute
   '/apps/matahang/$id/edit': typeof AppsMatahangIdEditRoute
   '/apps/matahang/$id/': typeof AppsMatahangIdIndexRoute
 }
@@ -139,6 +146,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardIndexRoute
   '/apps/matahang/new': typeof AppsMatahangNewRoute
   '/apps/matahang': typeof AppsMatahangIndexRoute
+  '/apps/aahamatn/$id/print': typeof AppsAahamatnIdPrintRoute
   '/apps/matahang/$id/edit': typeof AppsMatahangIdEditRoute
   '/apps/matahang/$id': typeof AppsMatahangIdIndexRoute
 }
@@ -158,6 +166,7 @@ export interface FileRoutesById {
   '/dashboard/': typeof DashboardIndexRoute
   '/apps/matahang/new': typeof AppsMatahangNewRoute
   '/apps/matahang/': typeof AppsMatahangIndexRoute
+  '/apps/aahamatn/$id/print': typeof AppsAahamatnIdPrintRoute
   '/apps/matahang/$id/edit': typeof AppsMatahangIdEditRoute
   '/apps/matahang/$id/': typeof AppsMatahangIdIndexRoute
 }
@@ -178,6 +187,7 @@ export interface FileRouteTypes {
     | '/dashboard/'
     | '/apps/matahang/new'
     | '/apps/matahang/'
+    | '/apps/aahamatn/$id/print'
     | '/apps/matahang/$id/edit'
     | '/apps/matahang/$id/'
   fileRoutesByTo: FileRoutesByTo
@@ -195,6 +205,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/apps/matahang/new'
     | '/apps/matahang'
+    | '/apps/aahamatn/$id/print'
     | '/apps/matahang/$id/edit'
     | '/apps/matahang/$id'
   id:
@@ -213,6 +224,7 @@ export interface FileRouteTypes {
     | '/dashboard/'
     | '/apps/matahang/new'
     | '/apps/matahang/'
+    | '/apps/aahamatn/$id/print'
     | '/apps/matahang/$id/edit'
     | '/apps/matahang/$id/'
   fileRoutesById: FileRoutesById
@@ -230,6 +242,7 @@ export interface RootRouteChildren {
   AppsMatahangRoute: typeof AppsMatahangRouteWithChildren
   AppsIndexRoute: typeof AppsIndexRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
+  AppsAahamatnIdPrintRoute: typeof AppsAahamatnIdPrintRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -332,6 +345,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppsMatahangNewRouteImport
       parentRoute: typeof AppsMatahangRoute
     }
+    '/apps/aahamatn/$id/print': {
+      id: '/apps/aahamatn/$id/print'
+      path: '/apps/aahamatn/$id/print'
+      fullPath: '/apps/aahamatn/$id/print'
+      preLoaderRoute: typeof AppsAahamatnIdPrintRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/apps/matahang/$id/': {
       id: '/apps/matahang/$id/'
       path: '/$id'
@@ -380,6 +400,7 @@ const rootRouteChildren: RootRouteChildren = {
   AppsMatahangRoute: AppsMatahangRouteWithChildren,
   AppsIndexRoute: AppsIndexRoute,
   DashboardIndexRoute: DashboardIndexRoute,
+  AppsAahamatnIdPrintRoute: AppsAahamatnIdPrintRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

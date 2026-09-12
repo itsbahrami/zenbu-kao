@@ -1,6 +1,7 @@
 import { HouseSimpleIcon } from '@phosphor-icons/react'
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { buttonVariants } from '#/common/ui/button'
+import { useIsLoggedIn } from '#/features/auth/store'
 
 export const Route = createFileRoute('/apps/')({
   component: RouteComponent,
@@ -10,6 +11,8 @@ export const Route = createFileRoute('/apps/')({
 })
 
 function RouteComponent() {
+  const isLoggedIn = useIsLoggedIn()
+
   return (
     <div className='flex min-h-svh flex-col items-center justify-center gap-2 bg-background p-4 md:p-8 relative'>
       <Link
@@ -40,13 +43,15 @@ function RouteComponent() {
           <span className=''>مخته</span>
         </Link>
 
-        <Link
-          to='/apps/matahang'
-          className='hover:bg-rose-950/50 hover:text-rose-300 transition-all p-4 rounded-md flex flex-col items-center gap-2'
-        >
-          <img className='size-16' alt='' src='/apps/Matahang.png' />
-          <span className=''>متهنگ</span>
-        </Link>
+        {isLoggedIn && (
+          <Link
+            to='/apps/matahang'
+            className='hover:bg-rose-950/50 hover:text-rose-300 transition-all p-4 rounded-md flex flex-col items-center gap-2'
+          >
+            <img className='size-16' alt='' src='/apps/Matahang.png' />
+            <span className=''>متهنگ</span>
+          </Link>
+        )}
       </div>
     </div>
   )
