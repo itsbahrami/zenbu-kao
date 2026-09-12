@@ -17,13 +17,16 @@ import {
 } from '@/common/ui/table'
 import { type DataTableFeatures, dataTableFeatures } from '@/features/DataTable'
 
+type Filter = {
+  id: string
+  columnName: string
+  placeholder: string
+}
+
 interface DataTableProps<TData extends RowData> {
   columns: ColumnDef<DataTableFeatures, TData>[]
   data: TData[]
-  filter?: {
-    columnName: string
-    placeholder: string
-  }
+  filters?: Filter[]
 }
 
 export function DataTable<TData extends RowData>(p: DataTableProps<TData>) {
@@ -39,21 +42,26 @@ export function DataTable<TData extends RowData>(p: DataTableProps<TData>) {
     state: { sorting, columnFilters },
   })
 
-  const filterColumn = table.getColumn(p.filter?.columnName ?? '')
-
   return (
     <div className=''>
-      {p.filter && (
-        <div className='flex items-center py-4'>
-          <Input
-            dir='auto'
-            className='max-w-sm'
-            placeholder={p.filter.placeholder}
-            value={(filterColumn?.getFilterValue() as string) ?? ''}
-            onChange={e => filterColumn?.setFilterValue(e.target.value)}
-          />
+      {p.filters?.length ? (
+        <div className='flex items-center py-4 flex-col sm:flex-row gap-2'>
+          {p.filters.map(filter => (
+            <FilterInput
+              key={filter.id}
+              filter={filter}
+              value={
+                (table
+                  .getColumn(filter.columnName)
+                  ?.getFilterValue() as string) || ''
+              }
+              onChange={value =>
+                table.getColumn(filter.columnName)?.setFilterValue(value)
+              }
+            />
+          ))}
         </div>
-      )}
+      ) : null}
 
       <div className='overflow-hidden rounded-md border'>
         <Table>
@@ -102,3 +110,16 @@ export function DataTable<TData extends RowData>(p: DataTableProps<TData>) {
     </div>
   )
 }
+
+const FilterInput = (p: {
+  filter: Filter
+  value: string
+  onChange: (value: string) => void
+}) => (
+  <Input
+    dir='auto'
+    placeholder={p.filter.placeholder}
+    value={p.value}
+    onChange={e => p.onChange(e.target.value)}
+  />
+)

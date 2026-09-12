@@ -3,6 +3,7 @@ import {
   PlaylistIcon,
   TrashSimpleIcon,
 } from '@phosphor-icons/react'
+import { Link } from '@tanstack/react-router'
 import { createColumnHelper } from '@tanstack/react-table'
 import { RenderTooltip } from '#/common/helpers/RenderTooltip'
 import { Button } from '#/common/ui/button'
@@ -13,10 +14,14 @@ import { DataTableColumnHeader } from '#/features/DataTable/DataTableColumnHeade
 import { languageValueToMeta } from './Language'
 import { matahangActions } from './store'
 
-const columnHelper = createColumnHelper<DataTableFeatures, AahamatnMinimalResponse>()
+const columnHelper = createColumnHelper<
+  DataTableFeatures,
+  AahamatnMinimalResponse
+>()
 
 const columns = columnHelper.columns([
   columnHelper.accessor('title', {
+    filterFn: 'includesString',
     header: p => <DataTableColumnHeader column={p.column} title='عنوان' />,
     cell: p => (
       <p dir='auto' className='whitespace-normal'>
@@ -25,6 +30,7 @@ const columns = columnHelper.columns([
     ),
   }),
   columnHelper.accessor('artist', {
+    filterFn: 'includesString',
     header: p => <DataTableColumnHeader column={p.column} title='هنرمند' />,
     cell: p => (
       <p dir='auto' className='whitespace-normal'>
@@ -52,7 +58,10 @@ export const AahamatnsTable = (p: { aahamatns: AahamatnMinimalResponse[] }) => (
     <DataTable
       columns={columns}
       data={p.aahamatns}
-      filter={{ columnName: 'title', placeholder: 'جستجوی عناوین...' }}
+      filters={[
+        { id: 'title', columnName: 'title', placeholder: 'جستجوی عناوین' },
+        { id: 'artist', columnName: 'artist', placeholder: 'جستجوی هنرمندان' },
+      ]}
     />
   </div>
 )
@@ -70,9 +79,16 @@ function AahamatnRowActions(p: { aahamatn: AahamatnMinimalResponse }) {
 
       {isLoggedIn && (
         <RenderTooltip tooltip='ویرایش'>
-          <Button size='icon-sm' variant='outline' disabled>
-            <PencilSimpleIcon />
-          </Button>
+          <Button
+            size='icon-sm'
+            variant='outline'
+            nativeButton={false}
+            render={
+              <Link to='/apps/matahang/$id/edit' params={{ id: p.aahamatn.id }}>
+                <PencilSimpleIcon />
+              </Link>
+            }
+          />
         </RenderTooltip>
       )}
 

@@ -13,9 +13,9 @@ export function MatahangLayout() {
   const isLoggedIn = useIsLoggedIn()
 
   return (
-    <div data-LAYOUT className='flex h-dvh max-h-dvh flex-col bg-background'>
-      <div data-NAV className='flex items-center py-2 px-4 gap-2'>
-        <div data-LOGO className='flex items-center gap-1'>
+    <div data-layout className='flex h-dvh max-h-dvh flex-col bg-background'>
+      <div data-nav className='flex items-center py-2 px-4 gap-2'>
+        <div data-logo className='flex items-center gap-1'>
           <img alt='' src={FAVICON} className='size-8' />
 
           <Link
@@ -29,7 +29,7 @@ export function MatahangLayout() {
         <div className='mx-auto' />
 
         {isLoggedIn && (
-          <RenderTooltip data-CREATE_BTN tooltip='آهمتن جدید'>
+          <RenderTooltip data-create_btn tooltip='آهمتن جدید'>
             <Button
               size='icon'
               variant='outline'
@@ -44,7 +44,7 @@ export function MatahangLayout() {
           </RenderTooltip>
         )}
 
-        <RenderTooltip data-UP_BTN tooltip='بازگشت به صفحه برنامک‌ها'>
+        <RenderTooltip data-up_btn tooltip='بازگشت به صفحه برنامک‌ها'>
           <Button
             size='icon'
             variant='outline'
@@ -58,7 +58,7 @@ export function MatahangLayout() {
         </RenderTooltip>
       </div>
 
-      <div data-BODY className='flex flex-1 px-4 py-2 flex-col overflow-y-auto'>
+      <div data-body className='flex flex-1 px-4 py-2 flex-col overflow-y-auto'>
         <Outlet />
       </div>
 

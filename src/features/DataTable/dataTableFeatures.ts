@@ -5,6 +5,7 @@ import {
   createPaginatedRowModel,
   createSortedRowModel,
   filterFn_includesString,
+  filterFn_weakEquals,
   rowPaginationFeature,
   rowSelectionFeature,
   rowSortingFeature,
@@ -22,7 +23,10 @@ export const dataTableFeatures = tableFeatures({
   filteredRowModel: createFilteredRowModel(),
   paginatedRowModel: createPaginatedRowModel(),
   sortedRowModel: createSortedRowModel(),
-  filterFns: { includesString: filterFn_includesString },
+  filterFns: {
+    includesString: filterFn_includesString,
+    weakEquals: filterFn_weakEquals,
+  },
   sortFns: { alphanumeric: sortFn_alphanumeric, text: sortFn_text },
 })
 

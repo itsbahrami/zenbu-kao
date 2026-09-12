@@ -37,7 +37,13 @@ export const TasksTable = (p: { tasks: ITask[] }) => (
     <DataTable
       columns={columns}
       data={p.tasks}
-      filter={{ columnName: 'title', placeholder: 'جستجوی عناوین تسک‌ها' }}
+      filters={[
+        {
+          id: 'title',
+          columnName: 'title',
+          placeholder: 'جستجوی عناوین تسک‌ها',
+        },
+      ]}
     />
   </div>
 )
