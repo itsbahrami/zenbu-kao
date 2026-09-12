@@ -2,11 +2,9 @@ import {
   columnFilteringFeature,
   columnVisibilityFeature,
   createFilteredRowModel,
-  createPaginatedRowModel,
   createSortedRowModel,
   filterFn_includesString,
   filterFn_weakEquals,
-  rowPaginationFeature,
   rowSelectionFeature,
   rowSortingFeature,
   sortFn_alphanumeric,
@@ -17,11 +15,9 @@ import {
 export const dataTableFeatures = tableFeatures({
   columnFilteringFeature,
   columnVisibilityFeature,
-  rowPaginationFeature,
   rowSelectionFeature,
   rowSortingFeature,
   filteredRowModel: createFilteredRowModel(),
-  paginatedRowModel: createPaginatedRowModel(),
   sortedRowModel: createSortedRowModel(),
   filterFns: {
     includesString: filterFn_includesString,
