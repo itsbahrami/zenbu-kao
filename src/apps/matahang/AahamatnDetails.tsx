@@ -110,7 +110,12 @@ export function AahamatnDetails(p: { aahamatn: AahamatnFullResponse }) {
         </RenderTooltip>
       </div>
 
-      <p className={cn('whitespace-pre-wrap text-foreground text-2xl', lang.fontClass)}>
+      <p
+        className={cn(
+          'whitespace-pre-wrap text-foreground text-2xl',
+          lang.fontClass,
+        )}
+      >
         {lyrics}
       </p>
     </div>

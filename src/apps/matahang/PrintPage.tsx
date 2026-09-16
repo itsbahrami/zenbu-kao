@@ -1,4 +1,9 @@
-import { CalendarIcon, MicrophoneStageIcon, PrinterIcon, TranslateIcon } from '@phosphor-icons/react'
+import {
+  CalendarIcon,
+  MicrophoneStageIcon,
+  PrinterIcon,
+  TranslateIcon,
+} from '@phosphor-icons/react'
 import { useQuery } from '@tanstack/react-query'
 import { cn } from 'cn'
 import { ErrorSection } from '#/common/components/ErrorSection'

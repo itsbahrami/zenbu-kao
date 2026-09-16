@@ -10,7 +10,7 @@ import { linkOptions } from '@tanstack/react-router'
 import { CardItem } from './CardItem'
 
 export const cardItems: CardItem[] = [
-  new CardItem(ReadCvLogoIcon, 'رزومه', 'دانلود رزومه‌ی من', null),
+  new CardItem(ReadCvLogoIcon, 'رزومه', 'دانلود رزومه‌ی من', '/resume.pdf'),
   new CardItem(
     ChatCircleDotsIcon,
     'تماس',

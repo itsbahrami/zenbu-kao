@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/a11y/useAnchorContent: valid_reasons.shut_up! */
 import { CaretRightIcon } from '@phosphor-icons/react'
 import { Link } from '@tanstack/react-router'
 import { Badge } from '#/common/ui/badge'
@@ -11,21 +12,27 @@ import {
 } from '#/common/ui/item'
 import type { CardItem } from './CardItem'
 
-export const CardItemCard = (p: { item: CardItem }) =>
-  p.item.isWip ? (
+export function CardItemCard(p: { item: CardItem }) {
+  const { isWip, linkOptions } = p.item
+
+  const content = <CardItemCardContent item={p.item} />
+  const render =
+    typeof linkOptions === 'string' ? (
+      <a href={linkOptions} target='_blank' />
+    ) : (
+      <Link {...linkOptions} />
+    )
+
+  return isWip ? (
     <Item variant='outline' className='opacity-60 cursor-not-allowed'>
-      <CardItemCardContent item={p.item} />
+      {content}
     </Item>
   ) : (
-    <Item
-      variant='outline'
-      render={
-        <Link {...p.item.linkOptions}>
-          <CardItemCardContent item={p.item} />
-        </Link>
-      }
-    />
+    <Item variant='outline' render={render}>
+      {content}
+    </Item>
   )
+}
 
 export const CardItemCardContent = (p: { item: CardItem }) => (
   <>
