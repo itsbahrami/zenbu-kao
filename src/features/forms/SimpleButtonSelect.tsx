@@ -1,4 +1,7 @@
-import { Button } from '#/common/ui/button'
+import type { VariantProps } from 'class-variance-authority'
+import type { ReactNode } from 'react'
+import { RenderTooltip } from '#/common/helpers/RenderTooltip'
+import { Button, type buttonVariants } from '#/common/ui/button'
 import { Field, FieldError, FieldLabel } from '@/common/ui/field'
 import { useFieldContext } from '.'
 import { FieldMeta } from './FieldMeta'
@@ -6,12 +9,14 @@ import { FieldMeta } from './FieldMeta'
 export type SimpleButtonSelectItem<T extends string = string> = {
   value: T
   label: string
+  children?: ReactNode
 }
 
 interface SimpleButtonSelectProps {
   title: string
   items: SimpleButtonSelectItem[]
   disabled?: boolean
+  btnSize?: VariantProps<typeof buttonVariants>['size']
 }
 
 export function SimpleButtonSelect(p: SimpleButtonSelectProps) {
@@ -22,18 +27,19 @@ export function SimpleButtonSelect(p: SimpleButtonSelectProps) {
     <Field>
       <FieldLabel htmlFor={field.name}>{p.title}</FieldLabel>
 
-      <div className='flex gap-1'>
+      <div className='flex gap-1 flex-wrap'>
         {p.items.map(item => (
-          <Button
-            size='xs'
-            id={field.name}
-            name={field.name}
-            key={item.value}
-            variant={value === item.value ? 'default' : 'outline'}
-            onClick={() => field.setValue(item.value)}
-            nativeButton={false}
-            render={<input type='button' value={item.label} />}
-          />
+          <RenderTooltip key={item.value} tooltip={item.label}>
+            <Button
+              size={p.btnSize}
+              id={field.name}
+              name={field.name}
+              variant={value === item.value ? 'default' : 'outline'}
+              onClick={() => field.setValue(item.value)}
+            >
+              {item.children ?? item.label}
+            </Button>
+          </RenderTooltip>
         ))}
       </div>
 

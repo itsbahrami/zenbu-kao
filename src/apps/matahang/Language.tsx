@@ -18,6 +18,7 @@ export type LanguageMeta = {
   fontClass: string
   dir: 'ltr' | 'rtl'
   lang: string
+  countryCode: string | null
 }
 
 export const languages: Record<Language, LanguageMeta> = {
@@ -28,6 +29,7 @@ export const languages: Record<Language, LanguageMeta> = {
     dir: 'rtl',
     fontClass: 'font-fa',
     lang: 'ar',
+    countryCode: 'iq',
   },
   English: {
     key: Language.English,
@@ -36,6 +38,7 @@ export const languages: Record<Language, LanguageMeta> = {
     dir: 'ltr',
     fontClass: 'font-ja',
     lang: 'en',
+    countryCode: 'us',
   },
   Japanese: {
     key: Language.Japanese,
@@ -44,14 +47,16 @@ export const languages: Record<Language, LanguageMeta> = {
     dir: 'ltr',
     fontClass: 'font-ja',
     lang: 'ja',
+    countryCode: 'jp',
   },
   Other: {
     key: Language.Other,
-    label: '-',
+    label: 'غیره',
     value: 0,
     dir: 'rtl',
     fontClass: 'font-fa',
     lang: 'fa',
+    countryCode: null,
   },
   Persian: {
     key: Language.Persian,
@@ -60,6 +65,7 @@ export const languages: Record<Language, LanguageMeta> = {
     dir: 'rtl',
     fontClass: 'font-fa',
     lang: 'fa',
+    countryCode: 'ir',
   },
 }
 
@@ -69,8 +75,25 @@ export const languageValueToMeta = (value: number): LanguageMeta =>
 export const allLanguages: Language[] = Object.values(Language)
 export const zLanguage = z.enum(allLanguages)
 
+export const LanguageSelectContent = (p: { countryCode: string | null }) => (
+  <span className='inline-flex w-8'>
+    {p.countryCode?.trim() ? (
+      <img
+        alt=''
+        className='rounded'
+        src={`https://flagcdn.com/${p.countryCode}.svg`}
+      />
+    ) : (
+      <span className='w-full h-full inline-block rounded bg-mist-500'>-</span>
+    )}
+  </span>
+)
+
 export const simpleButtonSelectLanguageItems: SimpleButtonSelectItem[] =
   allLanguages.map(lang => ({
     label: languages[lang].label,
     value: languages[lang].key,
+    children: (
+      <LanguageSelectContent countryCode={languages[lang].countryCode} />
+    ),
   }))

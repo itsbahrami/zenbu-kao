@@ -3,6 +3,7 @@
 import { PencilSimpleIcon, PlusIcon } from '@phosphor-icons/react'
 import { buttonVariants } from '#/common/ui/button'
 import { useAppForm } from '#/features/forms'
+import { Color, simpleButtonSelectColorItems } from './Color'
 import { Language, simpleButtonSelectLanguageItems } from './Language'
 import type { Aahamatn } from './zAahamatn'
 
@@ -11,7 +12,7 @@ const emptyValues: Aahamatn = {
   language: Language.Other,
   artist: '',
   audioUrl: '',
-  color: '',
+  color: Color.Other,
   lyrics: '',
   sourceUrl: '',
 }
@@ -69,8 +70,15 @@ export const AahamatnForm = (p: AahamatnFormProps) => {
         children={field => <field.SingleLineInput title='لینک فایل صوتی' />}
       />
 
-      {/* TODO: ENALBE THIS OPTION SOON... */}
-      {/* <form.AppField name='color' children={field => <field.SingleLineInput title='AAA' />} /> */}
+      <form.AppField
+        name='color'
+        children={field => (
+          <field.SimpleButtonSelect
+            title='رنگ'
+            items={simpleButtonSelectColorItems}
+          />
+        )}
+      />
 
       <form.AppField
         name='sourceUrl'
