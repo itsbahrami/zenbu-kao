@@ -1,7 +1,7 @@
-import { SpinnerGapIcon } from '@phosphor-icons/react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useNavigate } from '@tanstack/react-router'
-import { ErrorCard } from '#/common/components/ErrorCard'
+import { ErrorSection } from '#/common/components/ErrorSection'
+import { LoadingSection } from '#/common/components/LoadingSection'
 import { toast } from '#/common/ui/toast'
 import { extractErrorMessage } from '#/common/utils/extractErrorMessage'
 import { RenderQuery } from '#/common/utils/RenderQuery'
@@ -53,15 +53,9 @@ export function EditPage(p: { id: string }) {
       data={aahamatnQ.data!}
       status={aahamatnQ.status}
       errorView={
-        <div className='p-4 flex items-center justify-center'>
-          <ErrorCard error={aahamatnQ.error} onRetry={aahamatnQ.refetch} />
-        </div>
+        <ErrorSection error={aahamatnQ.error} onRetry={aahamatnQ.refetch} />
       }
-      loadingView={
-        <div className='p-4 flex items-center justify-center'>
-          <SpinnerGapIcon className='animate-spin' size={40} />
-        </div>
-      }
+      loadingView={<LoadingSection />}
       successView={aahamatn => (
         <AahamatnForm
           isEditMode={true}

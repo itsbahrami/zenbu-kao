@@ -1,24 +1,26 @@
 import { createStore, useSelector } from '@tanstack/react-store'
 
+type AahamatnToRemovePayload = { id: string; callback: () => void }
+
 interface MakhteStoreShape {
-  idOfAahamatnToRemove: string | null
+  aahamatnToRemove: AahamatnToRemovePayload | null
 }
 
 const emptyState: MakhteStoreShape = {
-  idOfAahamatnToRemove: null,
+  aahamatnToRemove: null,
 }
 
 const matahangStore = createStore(emptyState, a => ({
-  openRemoveAahamatnDialog: (idOfAahamatnToRemove: string) =>
-    a.setState(p => ({ ...p, idOfAahamatnToRemove })),
+  openRemoveAahamatnDialog: (aahamatnToRemove: AahamatnToRemovePayload) =>
+    a.setState(p => ({ ...p, aahamatnToRemove })),
 
   closeRemoveAahamatnDialog: () =>
-    a.setState(p => ({ ...p, idOfAahamatnToRemove: null })),
+    a.setState(p => ({ ...p, aahamatnToRemove: null })),
 
   reset: () => a.setState(() => emptyState),
 }))
 
 export const matahangActions = matahangStore.actions
 
-export const useIdOfAahamatnToRemove = () =>
-  useSelector(matahangStore, s => s.idOfAahamatnToRemove)
+export const useAahamatnToRemove = () =>
+  useSelector(matahangStore, s => s.aahamatnToRemove)

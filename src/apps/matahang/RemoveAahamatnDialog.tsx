@@ -11,15 +11,18 @@ import {
 import { toast } from '#/common/ui/toast'
 import { extractErrorMessage } from '#/common/utils/extractErrorMessage'
 import { deleteAahamatnMutation } from '#/features/api/client'
-import { matahangActions, useIdOfAahamatnToRemove } from './store'
+import { matahangActions, useAahamatnToRemove } from './store'
 
 export function RemoveAahamatnDialog() {
   const close = matahangActions.closeRemoveAahamatnDialog
-  const id = useIdOfAahamatnToRemove()
+  const payload = useAahamatnToRemove()
   const deleteM = useMutation({
     ...deleteAahamatnMutation(),
-    onSuccess: (_d, _v, _o, ctx) =>
-      void ctx.client.invalidateQueries().finally(close),
+    onSuccess: (_d, _v, _o, ctx) => {
+      void ctx.client.invalidateQueries()
+      close()
+      payload?.callback()
+    },
     onError: err =>
       toast.add({
         type: 'error',
@@ -28,10 +31,10 @@ export function RemoveAahamatnDialog() {
       }),
   })
 
-  const handleRemove = () => deleteM.mutate({ path: { id: id || '' } })
+  const handleRemove = () => deleteM.mutate({ path: { id: payload?.id || '' } })
 
   return (
-    <Dialog open={id != null} onOpenChange={close}>
+    <Dialog open={payload != null} onOpenChange={close}>
       <DialogContent className='sm:max-w-120'>
         <DialogHeader>
           <DialogTitle>حذف آهمتن</DialogTitle>
