@@ -22,7 +22,7 @@ export const contactItems: ContactItem[] = [
   {
     id: id(),
     title: 'ایمیل',
-    url: 'mailto:bahrami@mailfa.com',
+    url: 'mailto:me@itsbahrami.ir',
     IconOrPath: EnvelopeIcon,
   },
   {
