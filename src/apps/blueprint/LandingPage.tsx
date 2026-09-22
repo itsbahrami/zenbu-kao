@@ -1,3 +1,5 @@
 export const LandingPage = () => {
-  return null
+  return <div>
+
+  </div>
 }
