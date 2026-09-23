@@ -1,4 +1,4 @@
-import { ChatIcon, SealQuestionIcon } from '@phosphor-icons/react';
+import { ChatIcon, SealQuestionIcon } from '@phosphor-icons/react'
 import c from './content.json'
 
 export const FaqSection = () => (
@@ -9,23 +9,19 @@ export const FaqSection = () => (
 
     <p className='font-sans text-center'>{c.faq.description}</p>
 
-        <a
-          href={c.blueprint.cta_link}
-          target='_blank'
-          rel='noreferrer noopener'
-          className='flex items-center gap-1 py-2 px-8 w-full justify-center rounded-md bg-mist-100 text-blue-600 hover:bg-blue-600 hover:text-mist-100 font-bold transition-all sm:max-w-max'
-        >
-          <ChatIcon weight='fill' size={20} />
-          <span className=''>{c.blueprint.cta}</span>
-        </a>
+    <a
+      href={c.cta.url}
+      target='_blank'
+      rel='noreferrer noopener'
+      className='flex items-center gap-1 py-2 px-8 w-full justify-center rounded-md bg-mist-100 text-blue-600 hover:bg-blue-600 hover:text-mist-100 font-bold transition-all sm:max-w-max'
+    >
+      <ChatIcon weight='fill' size={20} />
+      <span className=''>{c.cta.button}</span>
+    </a>
 
     <div className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
       {c.faq.questions.map(q => (
-        <ItemCard
-          key={q.id}
-          title={q.question}
-          description={q.answer}
-        />
+        <ItemCard key={q.id} title={q.question} description={q.answer} />
       ))}
     </div>
   </section>

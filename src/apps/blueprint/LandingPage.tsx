@@ -1,5 +1,7 @@
 import { AboutMeSection } from './AboutMeSection'
+import { CtaSection } from './CtaSection'
 import { FaqSection } from './FaqSection'
+import { Footer } from './Footer'
 import { ForWhomSection } from './ForWhomSection'
 import { HeroSection } from './HeroSection'
 import { HowSection } from './HowSection'
@@ -19,5 +21,7 @@ export const LandingPage = () => (
     <PricingSection />
     <AboutMeSection />
     <FaqSection />
+    <CtaSection />
+    <Footer />
   </div>
 )
