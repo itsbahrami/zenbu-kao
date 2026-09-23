@@ -1,8 +1,4 @@
-import {
-  CaretLeftIcon,
-  CaretRightIcon,
-  ChatIcon
-} from '@phosphor-icons/react'
+import { CaretLeftIcon, CaretRightIcon, ChatIcon } from '@phosphor-icons/react'
 import './blueprint.css'
 import c from './content.json'
 
@@ -12,9 +8,11 @@ export const PricingSection = () => (
       {c.pricing.title}
     </h2>
 
-    <p className=''>{c.pricing.description}</p>
+    <p className='text-mist-100 font-bold'>{c.pricing.description}</p>
 
-    <div className='flex flex-col gap-8 items-center text-center py-8 px-4 rounded-md bg-blue-950/30 border border-blue-400 shadow-blue-400/20 shadow-xl transition-all max-w-xs mx-auto blueprint w-full'>
+    <p className='max-w-sm text-center'>{c.pricing.why}</p>
+
+    <div className='flex flex-col gap-8 items-center text-center py-8 px-4 rounded-md bg-blue-950/30 border border-blue-400 shadow-blue-400/20 shadow-xl transition-all max-w-sm mx-auto blueprint w-full'>
       <div className='flex items-center gap-4 flex-col w-full'>
         <span className='text-xs px-3 py-1 rounded-sm bg-emerald-950 text-emerald-400 border border-emerald-400'>
           {c.pricing.badge}
@@ -40,8 +38,6 @@ export const PricingSection = () => (
       </div>
 
       <div className='flex flex-col gap-4'>
-        <p className=''>{c.pricing.why}</p>
-
         <div className='flex flex-col gap-1 items-center w-full'>
           {c.pricing.includes.items.map(item => (
             <p key={item} className='flex w-full items-center gap-1'>
@@ -75,6 +71,10 @@ export const PricingSection = () => (
           <ChatIcon weight='fill' size={20} />
           <span className=''>{c.blueprint.cta}</span>
         </a>
+
+        <p className='font-sans text-center text-mist-100 bg-yellow-400/60'>
+          {c.pricing.guarantee}
+        </p>
       </div>
     </div>
   </section>
