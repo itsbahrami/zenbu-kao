@@ -2,7 +2,7 @@ import {
   ChatCircleDotsIcon,
   CodeIcon,
   HandPalmIcon,
-  type Icon
+  type Icon,
 } from '@phosphor-icons/react'
 import c from './content.json'
 
