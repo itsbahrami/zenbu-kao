@@ -1,10 +1,8 @@
 import {
+  BlueprintIcon,
   ChatCircleDotsIcon,
-  PackageIcon,
-  PenNibIcon,
   ReadCvLogoIcon,
   SquaresFourIcon,
-  WrenchIcon,
 } from '@phosphor-icons/react'
 import { linkOptions } from '@tanstack/react-router'
 import { CardItem } from './CardItem'
@@ -23,7 +21,13 @@ export const cardItems: CardItem[] = [
     'برنامه‌ها و ابزارهای کاربردی',
     linkOptions({ to: '/apps' }),
   ),
-  new CardItem(PenNibIcon, 'بلاگ', 'نوشته‌ها، آموزش‌ها، و مقالات', null),
-  new CardItem(WrenchIcon, 'خدمات', 'چیزهایی که ارائه میدم', null),
-  new CardItem(PackageIcon, 'محصولات', 'محصولات دیجیتال من', null),
+  new CardItem(
+    BlueprintIcon,
+    'بلوپرینت',
+    'نقشه‌ای که قبل ساخت سایتت نیازش داری!',
+    linkOptions({ to: '/blueprint' }),
+  ),
+  // new CardItem(PenNibIcon, 'بلاگ', 'نوشته‌ها، آموزش‌ها، و مقالات', null),
+  // new CardItem(WrenchIcon, 'خدمات', 'چیزهایی که ارائه میدم', null),
+  // new CardItem(PackageIcon, 'محصولات', 'محصولات دیجیتال من', null),
 ]

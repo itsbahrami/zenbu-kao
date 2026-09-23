@@ -20,7 +20,7 @@ export function BahramiPage() {
 
       <img alt='' src='/Spec.png' className='size-40 rounded-full' />
 
-      <h1 className='text-3xl font-bold'>بهرامی‌ام! 👋🏻</h1>
+      <h1 className='text-3xl font-bold font-heading'>بهرامی‌ام! 👋🏻</h1>
 
       <div className='flex flex-wrap items-center justify-center gap-2'>
         <span>برنامه‌نویس فول‌استک</span>

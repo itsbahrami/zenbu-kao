@@ -42,7 +42,7 @@ export const CardItemCardContent = (p: { item: CardItem }) => (
 
     <ItemContent>
       <ItemTitle className='flex items-center gap-2'>
-        <span>{p.item.title}</span>
+        <span className='font-heading'>{p.item.title}</span>
         {p.item.isWip && <Badge variant='secondary'>به زودی</Badge>}
       </ItemTitle>
       <ItemDescription className='flex items-center gap-2'>

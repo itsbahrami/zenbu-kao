@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BahramiRouteImport } from './routes/bahrami'
+import { Route as BlueprintRouteImport } from './routes/blueprint'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -35,6 +36,11 @@ const IndexRoute = IndexRouteImport.update({
 const BahramiRoute = BahramiRouteImport.update({
   id: '/bahrami',
   path: '/bahrami',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlueprintRoute = BlueprintRouteImport.update({
+  id: '/blueprint',
+  path: '/blueprint',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -116,6 +122,7 @@ const AppsMatahangIdEditRoute = AppsMatahangIdEditRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bahrami': typeof BahramiRoute
+  '/blueprint': typeof BlueprintRoute
   '/contact': typeof ContactRoute
   '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
@@ -135,6 +142,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bahrami': typeof BahramiRoute
+  '/blueprint': typeof BlueprintRoute
   '/contact': typeof ContactRoute
   '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
@@ -154,6 +162,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bahrami': typeof BahramiRoute
+  '/blueprint': typeof BlueprintRoute
   '/contact': typeof ContactRoute
   '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
@@ -175,6 +184,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/bahrami'
+    | '/blueprint'
     | '/contact'
     | '/login'
     | '/privacy'
@@ -194,6 +204,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/bahrami'
+    | '/blueprint'
     | '/contact'
     | '/login'
     | '/privacy'
@@ -212,6 +223,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/bahrami'
+    | '/blueprint'
     | '/contact'
     | '/login'
     | '/privacy'
@@ -232,6 +244,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BahramiRoute: typeof BahramiRoute
+  BlueprintRoute: typeof BlueprintRoute
   ContactRoute: typeof ContactRoute
   LoginRoute: typeof LoginRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -259,6 +272,13 @@ declare module '@tanstack/react-router' {
       path: '/bahrami'
       fullPath: '/bahrami'
       preLoaderRoute: typeof BahramiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blueprint': {
+      id: '/blueprint'
+      path: '/blueprint'
+      fullPath: '/blueprint'
+      preLoaderRoute: typeof BlueprintRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -390,6 +410,7 @@ const AppsMatahangRouteWithChildren = AppsMatahangRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BahramiRoute: BahramiRoute,
+  BlueprintRoute: BlueprintRoute,
   ContactRoute: ContactRoute,
   LoginRoute: LoginRoute,
   PrivacyRoute: PrivacyRoute,
