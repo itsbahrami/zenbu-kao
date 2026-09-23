@@ -7,10 +7,10 @@ import {
 import c from './content.json'
 
 export const WithSection = () => (
-  <header className='bg-linear-to-bl from-mist-50 to-mist-200 flex flex-col gap-4 py-12 px-4 text-mist-700'>
-    <h1 className='text-mist-900 text-center font-heading font-black text-xl sm:text-2xl leading-relaxed'>
+  <section className='bg-linear-to-bl from-mist-50 to-mist-200 flex flex-col gap-4 py-12 px-4 text-mist-700'>
+    <h2 className='text-mist-900 text-center font-heading font-black text-xl sm:text-2xl leading-relaxed'>
       {c.with.title}
-    </h1>
+    </h2>
 
     <p className='font-sans text-center'>{c.with.description}</p>
 
@@ -60,5 +60,5 @@ export const WithSection = () => (
         </div>
       </div>
     </div>
-  </header>
+  </section>
 )

@@ -7,10 +7,10 @@ import {
 import c from './content.json'
 
 export const ForWhomSection = () => (
-  <header className='bg-linear-to-br from-mist-950 to-mist-800 flex flex-col gap-4 py-12 px-4 text-mist-300'>
-    <h1 className='text-mist-100 text-center font-heading font-black text-xl sm:text-2xl leading-relaxed'>
+  <section className='bg-linear-to-br from-mist-950 to-mist-800 flex flex-col gap-4 py-12 px-4 text-mist-300'>
+    <h2 className='text-mist-100 text-center font-heading font-black text-xl sm:text-2xl leading-relaxed'>
       {c.for_whom.title}
-    </h1>
+    </h2>
 
     <p className='font-sans text-center'>{c.for_whom.description}</p>
 
@@ -60,5 +60,5 @@ export const ForWhomSection = () => (
         </div>
       </div>
     </div>
-  </header>
+  </section>
 )

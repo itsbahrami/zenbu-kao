@@ -12,13 +12,13 @@ export const HeroSection = () => (
 
     <div className='flex flex-col sm:flex-row items-center gap-2 w-full justify-center'>
       <a
-        href='https://eitaa.com/itsbahrami'
+        href={c.blueprint.cta_link}
         target='_blank'
         rel='noreferrer noopener'
         className='flex items-center gap-1 py-2 px-8 w-full sm:max-w-max justify-center rounded-xs bg-mist-100 text-blue-600 hover:bg-blue-600 hover:text-mist-100 font-bold transition-all'
       >
         <ChatIcon weight='fill' size={20} />
-        <span className=''>{c.hero.actions.primary}</span>
+        <span className=''>{c.blueprint.cta}</span>
       </a>
 
       <button

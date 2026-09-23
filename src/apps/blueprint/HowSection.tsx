@@ -16,10 +16,10 @@ const iconNameMap: Record<string, Icon> = {
 }
 
 export const HowSection = () => (
-  <header className='bg-blue-950/50 blueprint flex flex-col gap-4 py-12 px-4 text-mist-300'>
-    <h1 className='text-mist-100 font-heading font-black text-xl sm:text-2xl leading-relaxed text-center'>
+  <section className='bg-blue-950/50 blueprint flex flex-col gap-4 py-12 px-4 text-mist-300'>
+    <h2 className='text-mist-100 font-heading font-black text-xl sm:text-2xl leading-relaxed text-center'>
       {c.how.title}
-    </h1>
+    </h2>
 
     <p className='font-sans text-center'>{c.how.description}</p>
 
@@ -34,7 +34,7 @@ export const HowSection = () => (
         />
       ))}
     </div>
-  </header>
+  </section>
 )
 
 const StepCard = (p: {

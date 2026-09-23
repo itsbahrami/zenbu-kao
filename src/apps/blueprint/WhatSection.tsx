@@ -19,10 +19,10 @@ const iconNameMap: Record<string, Icon> = {
 }
 
 export const WhatSection = () => (
-  <header className='bg-linear-to-br from-mist-950 to-mist-800 flex flex-col gap-4 py-12 px-4 text-mist-300'>
-    <h1 className='text-mist-100 font-heading font-black text-xl sm:text-2xl leading-relaxed text-center'>
+  <section className='bg-linear-to-br from-mist-950 to-mist-800 flex flex-col gap-4 py-12 px-4 text-mist-300'>
+    <h2 className='text-mist-100 font-heading font-black text-xl sm:text-2xl leading-relaxed text-center'>
       {c.what.title}
-    </h1>
+    </h2>
 
     <p className='font-sans text-center'>{c.what.description}</p>
 
@@ -36,7 +36,7 @@ export const WhatSection = () => (
         />
       ))}
     </div>
-  </header>
+  </section>
 )
 
 const ItemCard = (p: { icon: Icon; title: string; description: string }) => (
