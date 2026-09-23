@@ -12,13 +12,13 @@ export const WithSection = () => (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
       <div className='flex flex-col gap-2 items-start p-2 sm:p-4 rounded-md bg-red-100 transition-all border border-red-300'>
         <div className="flex items-center gap-2">
-          <XCircleIcon size={24} className='text-red-500' weight='duotone' />
+          <XCircleIcon size={24} className='text-red-500' weight='fill' />
 
-          <p className='font-heading text-mist-900 font-bold'>بدون بلوپرینت</p>
+          <p className='font-heading text-mist-900 font-bold'>{c.with.without.title}</p>
         </div>
 
         <div className='flex flex-col gap-1'>
-          {c.with.without.map(item => (
+          {c.with.without.items.map(item => (
             <p key={item} className=''>
               <XIcon size={20} className='text-red-500 inline-block me-1' />
               <span>{item}</span>
@@ -29,13 +29,13 @@ export const WithSection = () => (
 
       <div className='flex flex-col gap-2 items-start p-2 sm:p-4 rounded-md bg-emerald-100 transition-all border border-emerald-300'>
         <div className="flex items-center gap-2">
-          <CheckCircleIcon size={24} className='text-emerald-500' weight='duotone' />
+          <CheckCircleIcon size={24} className='text-emerald-500' weight='fill' />
 
-          <p className='font-heading text-mist-900 font-bold'>با بلوپرینت</p>
+          <p className='font-heading text-mist-900 font-bold'>{c.with.with.title}</p>
         </div>
 
         <div className='flex flex-col gap-1'>
-          {c.with.with.map(item => (
+          {c.with.with.items.map(item => (
             <p key={item} className=''>
               <CheckIcon size={20} className='text-emerald-500 inline-block me-1' />
               <span>{item}</span>
