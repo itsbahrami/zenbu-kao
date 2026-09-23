@@ -7,7 +7,7 @@ import {
 import c from './content.json'
 
 export const WithSection = () => (
-  <section className='bg-linear-to-bl from-mist-50 to-mist-200 flex flex-col gap-4 py-12 px-4 text-mist-700'>
+  <section className='bg-mist-50 flex flex-col gap-4 py-12 px-4 text-mist-700'>
     <h2 className='text-mist-900 text-center font-heading font-black text-xl sm:text-2xl leading-relaxed'>
       {c.with.title}
     </h2>

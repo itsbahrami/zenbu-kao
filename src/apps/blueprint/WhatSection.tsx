@@ -19,7 +19,7 @@ const iconNameMap: Record<string, Icon> = {
 }
 
 export const WhatSection = () => (
-  <section className='bg-linear-to-br from-mist-950 to-mist-800 flex flex-col gap-4 py-12 px-4 text-mist-300'>
+  <section className='bg-mist-950 flex flex-col gap-4 py-12 px-4 text-mist-300'>
     <h2 className='text-mist-100 font-heading font-black text-xl sm:text-2xl leading-relaxed text-center'>
       {c.what.title}
     </h2>
