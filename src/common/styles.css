@@ -7,19 +7,21 @@
 @plugin "@tailwindcss/typography";
 
 @font-face {
-  font-family: 'Lahzeh Variable';
-  src: url('/fonts/lahzeh/Lahzeh-FamilyVF.woff2') format('woff2-variations'),
-       url('/fonts/lahzeh/Lahzeh-FamilyVF.woff') format('woff-variations');
+  font-family: "Lahzeh Variable";
+  src:
+    url("/fonts/lahzeh/Lahzeh-FamilyVF.woff2") format("woff2-variations"),
+    url("/fonts/lahzeh/Lahzeh-FamilyVF.woff") format("woff-variations");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
-  font-variation-settings: 'wght' var(--font-weight, 400);
+  font-variation-settings: "wght" var(--font-weight, 400);
 }
 
 @font-face {
-  font-family: 'Lahzeh Variable';
-  src: url('/fonts/lahzeh/Lahzeh-FamilyVF.woff2') format('woff2'),
-       url('/fonts/lahzeh/Lahzeh-FamilyVF.woff') format('woff');
+  font-family: "Lahzeh Variable";
+  src:
+    url("/fonts/lahzeh/Lahzeh-FamilyVF.woff2") format("woff2"),
+    url("/fonts/lahzeh/Lahzeh-FamilyVF.woff") format("woff");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
