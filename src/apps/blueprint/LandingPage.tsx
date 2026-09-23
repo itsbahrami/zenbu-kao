@@ -1,5 +1,7 @@
+import { ForWhomSection } from './ForWhomSection'
 import { HeroSection } from './HeroSection'
 import { WhatSection } from './WhatSection'
+import { WhyMeSection } from './WhyMeSection'
 import { WithSection } from './WithSection'
 
 export const LandingPage = () => (
@@ -7,5 +9,7 @@ export const LandingPage = () => (
     <HeroSection />
     <WhatSection />
     <WithSection />
+    <ForWhomSection />
+    <WhyMeSection />
   </div>
 )

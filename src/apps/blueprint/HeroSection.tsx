@@ -1,6 +1,6 @@
 import c from './content.json'
 import './blueprint.css'
-import { ChatIcon, QuestionIcon } from '@phosphor-icons/react'
+import { ChatIcon } from '@phosphor-icons/react'
 
 export const HeroSection = () => (
   <header className='bg-blue-950/50 flex flex-col gap-4 items-center text-center py-24 blueprint px-4 text-mist-300'>
@@ -25,7 +25,6 @@ export const HeroSection = () => (
         type='button'
         className='flex items-center gap-1 py-2 w-full sm:max-w-max px-4 justify-center rounded-xs bg-transparnet border border-current text-mist-400 hover:text-mist-100 transition-all'
       >
-        <QuestionIcon size={20} />
         <span className=''>{c.hero.actions.secondary}</span>
       </button>
     </div>
