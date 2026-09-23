@@ -20,11 +20,11 @@ const iconNameMap: Record<string, Icon> = {
 
 export const WhatSection = () => (
   <header className='bg-linear-to-br from-mist-950 to-mist-800 flex flex-col gap-4 py-12 px-4 text-mist-300'>
-    <h1 className='text-mist-100 font-heading font-black text-xl sm:text-2xl leading-relaxed'>
+    <h1 className='text-mist-100 font-heading font-black text-xl sm:text-2xl leading-relaxed text-center'>
       {c.what.title}
     </h1>
 
-    <p className='font-sans'>{c.what.description}</p>
+    <p className='font-sans text-center'>{c.what.description}</p>
 
     <div className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
       {c.what.items.map(item => (
