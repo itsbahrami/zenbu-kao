@@ -16,7 +16,10 @@ const iconNameMap: Record<string, Icon> = {
 }
 
 export const HowSection = () => (
-  <section id={c.how.id} className='bg-blue-950/50 blueprint flex flex-col gap-4 py-12 px-4 text-mist-300'>
+  <section
+    id={c.how.id}
+    className='bg-blue-950/50 blueprint flex flex-col gap-4 py-12 px-4 text-mist-300'
+  >
     <h2 className='text-mist-100 font-heading font-black text-xl sm:text-2xl leading-relaxed text-center'>
       {c.how.title}
     </h2>

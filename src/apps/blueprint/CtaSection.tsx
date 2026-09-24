@@ -3,7 +3,10 @@ import './blueprint.css'
 import c from './content.json'
 
 export const CtaSection = () => (
-  <section id={c.cta.id} className='bg-blue-950/50 blueprint flex flex-col gap-4 py-36 px-4 text-mist-300 font-sans items-center text-center'>
+  <section
+    id={c.cta.id}
+    className='bg-blue-950/50 blueprint flex flex-col gap-4 py-36 px-4 text-mist-300 font-sans items-center text-center'
+  >
     <h2 className='text-mist-100 font-heading font-black text-xl sm:text-2xl leading-relaxed text-center'>
       {c.cta.title}
     </h2>

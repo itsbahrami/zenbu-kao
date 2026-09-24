@@ -7,7 +7,10 @@ import {
 import c from './content.json'
 
 export const ForWhomSection = () => (
-  <section id={c.for_whom.id} className='bg-mist-950 flex flex-col gap-4 py-12 px-4 text-mist-300'>
+  <section
+    id={c.for_whom.id}
+    className='bg-mist-950 flex flex-col gap-4 py-12 px-4 text-mist-300'
+  >
     <h2 className='text-mist-100 text-center font-heading font-black text-xl sm:text-2xl leading-relaxed'>
       {c.for_whom.title}
     </h2>

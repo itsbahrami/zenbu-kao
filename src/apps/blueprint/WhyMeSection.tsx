@@ -13,7 +13,10 @@ const iconNameMap: Record<string, Icon> = {
 }
 
 export const WhyMeSection = () => (
-  <section id={c.why_me.id} className='bg-mist-50 flex flex-col gap-4 py-12 px-4 text-mist-700'>
+  <section
+    id={c.why_me.id}
+    className='bg-mist-50 flex flex-col gap-4 py-12 px-4 text-mist-700'
+  >
     <h2 className='text-mist-900 text-center font-heading font-black text-xl sm:text-2xl leading-relaxed'>
       {c.why_me.title}
     </h2>
