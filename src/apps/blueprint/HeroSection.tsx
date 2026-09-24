@@ -5,15 +5,18 @@ import { ChatIcon } from '@phosphor-icons/react'
 export const HeroSection = () => (
   <header
     id={c.hero.id}
-    className='bg-blue-950/50 min-h-[90dvh] flex justify-center items-center blueprint px-4 text-mist-300'
+    className='bg-blue-950/50 min-h-[80dvh] flex justify-center items-center blueprint px-4 text-mist-300 font-sans'
   >
     <div className='flex flex-col gap-4 items-center text-center max-w-6xl w-full'>
-      <h1 className='text-mist-100 font-heading font-black text-2xl sm:text-4xl leading-relaxed'>
+      <h1 className='text-mist-100 font-heading font-black text-2xl sm:text-4xl leading-relaxed whitespace-pre-line'>
         {c.hero.title}
       </h1>
 
-      <p className='font-sans'>{c.hero.description}</p>
-      <p className='font-sans'>{c.cta.description}</p>
+      <p className=''>{c.hero.description}</p>
+
+      <br />
+
+      <p className=''>{c.cta.description}</p>
 
       <div className='flex flex-col sm:flex-row items-center gap-2 w-full justify-center'>
         <a
