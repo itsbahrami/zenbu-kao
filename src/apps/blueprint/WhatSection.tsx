@@ -19,32 +19,34 @@ const iconNameMap: Record<string, Icon> = {
 }
 
 export const WhatSection = () => (
-  <section id={c.what.id} className='bg-mist-950 flex flex-col gap-4 py-12 px-4 text-mist-300'>
-    <h2 className='text-mist-100 font-heading font-black text-xl sm:text-2xl leading-relaxed text-center'>
-      {c.what.title}
-    </h2>
+  <section id={c.what.id} className='bg-mist-950 py-12 px-4 text-mist-300'>
+    <div className='flex flex-col gap-4 max-w-6xl mx-auto'>
+      <h2 className='text-mist-100 font-heading font-black text-xl sm:text-2xl leading-relaxed text-center'>
+        {c.what.title}
+      </h2>
 
-    <p className='font-sans text-center'>{c.what.description}</p>
+      <p className='font-sans text-center'>{c.what.description}</p>
 
-    <div className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
-      {c.what.items.map(item => (
-        <ItemCard
-          key={item.id}
-          title={item.title}
-          description={item.description}
-          icon={iconNameMap[item.icon]}
-        />
-      ))}
+      <div className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
+        {c.what.items.map(item => (
+          <ItemCard
+            key={item.id}
+            title={item.title}
+            description={item.description}
+            icon={iconNameMap[item.icon]}
+          />
+        ))}
+      </div>
     </div>
   </section>
 )
 
 const ItemCard = (p: { icon: Icon; title: string; description: string }) => (
-  <div className='flex flex-col gap-2 items-start p-2 sm:p-4 rounded-md bg-mist-900 hover:bg-mist-800 transition-all'>
+  <div className='flex flex-col gap-2 items-start p-4 rounded-md bg-mist-900 hover:bg-mist-800 transition-all'>
     <p.icon size={24} className='text-blue-500' weight='duotone' />
 
     <p className='font-heading text-mist-100 font-bold'>{p.title}</p>
 
-    <p className='text-xs'>{p.description}</p>
+    <p className=''>{p.description}</p>
   </div>
 )
