@@ -18,24 +18,26 @@ const iconNameMap: Record<string, Icon> = {
 export const HowSection = () => (
   <section
     id={c.how.id}
-    className='bg-blue-950/50 blueprint flex flex-col gap-4 py-12 px-4 text-mist-300'
+    className='bg-blue-950/50 blueprint py-12 px-4 text-mist-300'
   >
-    <h2 className='text-mist-100 font-heading font-black text-xl sm:text-2xl leading-relaxed text-center'>
-      {c.how.title}
-    </h2>
+    <div className='flex flex-col gap-4 max-w-6xl mx-auto'>
+      <h2 className='text-mist-100 font-heading font-black text-xl sm:text-2xl leading-relaxed text-center'>
+        {c.how.title}
+      </h2>
 
-    <p className='font-sans text-center'>{c.how.description}</p>
+      <p className='font-sans text-center'>{c.how.description}</p>
 
-    <div className='grid grid-cols-1 gap-2 mx-auto max-w-lg'>
-      {c.how.steps.map(step => (
-        <StepCard
-          key={step.index}
-          index={step.index}
-          title={step.title}
-          description={step.description}
-          icon={iconNameMap[step.icon]}
-        />
-      ))}
+      <div className='grid grid-cols-1 gap-2 mx-auto max-w-2xl w-full'>
+        {c.how.steps.map(step => (
+          <StepCard
+            key={step.index}
+            index={step.index}
+            title={step.title}
+            description={step.description}
+            icon={iconNameMap[step.icon]}
+          />
+        ))}
+      </div>
     </div>
   </section>
 )

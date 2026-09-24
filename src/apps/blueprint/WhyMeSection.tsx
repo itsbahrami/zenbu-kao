@@ -13,25 +13,24 @@ const iconNameMap: Record<string, Icon> = {
 }
 
 export const WhyMeSection = () => (
-  <section
-    id={c.why_me.id}
-    className='bg-mist-50 flex flex-col gap-4 py-12 px-4 text-mist-700'
-  >
-    <h2 className='text-mist-900 text-center font-heading font-black text-xl sm:text-2xl leading-relaxed'>
-      {c.why_me.title}
-    </h2>
+  <section id={c.why_me.id} className='bg-mist-50 py-12 px-4 text-mist-700'>
+    <div className='flex flex-col gap-4 max-w-6xl mx-auto'>
+      <h2 className='text-mist-900 text-center font-heading font-black text-xl sm:text-2xl leading-relaxed'>
+        {c.why_me.title}
+      </h2>
 
-    <p className='font-sans text-center'>{c.why_me.description}</p>
+      <p className='font-sans text-center'>{c.why_me.description}</p>
 
-    <div className='grid grid-cols-1 sm:grid-cols-3 gap-2'>
-      {c.why_me.items.map(item => (
-        <ItemCard
-          key={item.id}
-          title={item.title}
-          description={item.description}
-          icon={iconNameMap[item.icon]}
-        />
-      ))}
+      <div className='grid grid-cols-1 sm:grid-cols-3 gap-2'>
+        {c.why_me.items.map(item => (
+          <ItemCard
+            key={item.id}
+            title={item.title}
+            description={item.description}
+            icon={iconNameMap[item.icon]}
+          />
+        ))}
+      </div>
     </div>
   </section>
 )
@@ -42,6 +41,6 @@ const ItemCard = (p: { icon: Icon; title: string; description: string }) => (
 
     <p className='font-heading text-mist-900 font-bold'>{p.title}</p>
 
-    <p className='text-xs'>{p.description}</p>
+    <p className=''>{p.description}</p>
   </div>
 )
