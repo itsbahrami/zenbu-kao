@@ -2,7 +2,7 @@ import { ChatIcon, SealQuestionIcon } from '@phosphor-icons/react'
 import c from './content.json'
 
 export const FaqSection = () => (
-  <section className='bg-mist-950 flex flex-col gap-4 py-12 px-4 text-mist-300 items-center'>
+  <section id={c.faq.id} className='bg-mist-950 flex flex-col gap-4 py-12 px-4 text-mist-300 items-center'>
     <h2 className='text-mist-100 font-heading font-black text-xl sm:text-2xl leading-relaxed text-center'>
       {c.faq.title}
     </h2>

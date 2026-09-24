@@ -3,7 +3,7 @@ import './blueprint.css'
 import { ChatIcon } from '@phosphor-icons/react'
 
 export const HeroSection = () => (
-  <header className='bg-blue-950/50 flex flex-col gap-4 items-center text-center py-24 blueprint px-4 text-mist-300'>
+  <header id={c.hero.id} className='bg-blue-950/50 flex flex-col gap-4 items-center text-center py-8 min-h-[90dvh] justify-center blueprint px-4 text-mist-300'>
     <h1 className='text-mist-100 font-heading font-black text-2xl sm:text-4xl leading-relaxed'>
       {c.hero.title}
     </h1>
@@ -21,12 +21,12 @@ export const HeroSection = () => (
         <span className=''>{c.cta.button}</span>
       </a>
 
-      <button
-        type='button'
-        className='flex items-center gap-1 py-2 w-full sm:max-w-max px-4 justify-center rounded-xs bg-transparnet border border-current text-mist-400 hover:text-mist-100 transition-all'
+      <a
+        href={`#${c.what.id}`}
+        className='flex items-center gap-1 py-2 w-full sm:max-w-max px-4 justify-center rounded-xs bg-transparnet border border-current text-mist-100 hover:bg-mist-100 hover:text-mist-900 transition-all'
       >
         <span className=''>{c.hero.actions.secondary}</span>
-      </button>
+      </a>
     </div>
   </header>
 )

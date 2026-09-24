@@ -3,7 +3,7 @@ import './blueprint.css'
 import c from './content.json'
 
 export const PricingSection = () => (
-  <section className='bg-mist-950 flex flex-col gap-4 py-12 px-4 text-mist-400 font-sans items-center'>
+  <section id={c.pricing.id} className='bg-mist-950 flex flex-col gap-4 py-12 px-4 text-mist-400 font-sans items-center'>
     <h2 className='text-mist-100 text-center font-heading font-black text-xl sm:text-2xl leading-relaxed'>
       {c.pricing.title}
     </h2>

@@ -35,7 +35,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 
 function RootDocument(p: PropsWithChildren) {
   return (
-    <html lang='fa' dir='rtl' className='dark'>
+    <html lang='fa' dir='rtl' className='dark scroll-smooth'>
       <head>
         <HeadContent />
       </head>
