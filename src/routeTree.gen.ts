@@ -11,22 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BahramiRouteImport } from './routes/bahrami'
-import { Route as BlueprintRouteImport } from './routes/blueprint'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as LoginRouteImport } from './routes/login'
-import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as RegisterRouteImport } from './routes/register'
-import { Route as TermsRouteImport } from './routes/terms'
-import { Route as AppsIndexRouteImport } from './routes/apps/index'
-import { Route as AppsAzkhakRouteImport } from './routes/apps/azkhak'
-import { Route as AppsMakhteRouteImport } from './routes/apps/makhte'
-import { Route as AppsMatahangRouteImport } from './routes/apps/matahang'
-import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
-import { Route as AppsMatahangIndexRouteImport } from './routes/apps/matahang.index'
-import { Route as AppsMatahangNewRouteImport } from './routes/apps/matahang.new'
-import { Route as AppsAahamatnIdPrintRouteImport } from './routes/apps/aahamatn.$id.print'
-import { Route as AppsMatahangIdIndexRouteImport } from './routes/apps/matahang.$id.index'
-import { Route as AppsMatahangIdEditRouteImport } from './routes/apps/matahang.$id.edit'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -38,224 +22,31 @@ const BahramiRoute = BahramiRouteImport.update({
   path: '/bahrami',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlueprintRoute = BlueprintRouteImport.update({
-  id: '/blueprint',
-  path: '/blueprint',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PrivacyRoute = PrivacyRouteImport.update({
-  id: '/privacy',
-  path: '/privacy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RegisterRoute = RegisterRouteImport.update({
-  id: '/register',
-  path: '/register',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TermsRoute = TermsRouteImport.update({
-  id: '/terms',
-  path: '/terms',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AppsIndexRoute = AppsIndexRouteImport.update({
-  id: '/apps/',
-  path: '/apps/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AppsAzkhakRoute = AppsAzkhakRouteImport.update({
-  id: '/apps/azkhak',
-  path: '/apps/azkhak',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AppsMakhteRoute = AppsMakhteRouteImport.update({
-  id: '/apps/makhte',
-  path: '/apps/makhte',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AppsMatahangRoute = AppsMatahangRouteImport.update({
-  id: '/apps/matahang',
-  path: '/apps/matahang',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DashboardIndexRoute = DashboardIndexRouteImport.update({
-  id: '/dashboard/',
-  path: '/dashboard/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AppsMatahangIndexRoute = AppsMatahangIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => AppsMatahangRoute,
-} as any)
-const AppsMatahangNewRoute = AppsMatahangNewRouteImport.update({
-  id: '/new',
-  path: '/new',
-  getParentRoute: () => AppsMatahangRoute,
-} as any)
-const AppsAahamatnIdPrintRoute = AppsAahamatnIdPrintRouteImport.update({
-  id: '/apps/aahamatn/$id/print',
-  path: '/apps/aahamatn/$id/print',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AppsMatahangIdIndexRoute = AppsMatahangIdIndexRouteImport.update({
-  id: '/$id/',
-  path: '/$id/',
-  getParentRoute: () => AppsMatahangRoute,
-} as any)
-const AppsMatahangIdEditRoute = AppsMatahangIdEditRouteImport.update({
-  id: '/$id/edit',
-  path: '/$id/edit',
-  getParentRoute: () => AppsMatahangRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bahrami': typeof BahramiRoute
-  '/blueprint': typeof BlueprintRoute
-  '/contact': typeof ContactRoute
-  '/login': typeof LoginRoute
-  '/privacy': typeof PrivacyRoute
-  '/register': typeof RegisterRoute
-  '/terms': typeof TermsRoute
-  '/apps/azkhak': typeof AppsAzkhakRoute
-  '/apps/makhte': typeof AppsMakhteRoute
-  '/apps/matahang': typeof AppsMatahangRouteWithChildren
-  '/apps/': typeof AppsIndexRoute
-  '/dashboard/': typeof DashboardIndexRoute
-  '/apps/matahang/new': typeof AppsMatahangNewRoute
-  '/apps/matahang/': typeof AppsMatahangIndexRoute
-  '/apps/aahamatn/$id/print': typeof AppsAahamatnIdPrintRoute
-  '/apps/matahang/$id/edit': typeof AppsMatahangIdEditRoute
-  '/apps/matahang/$id/': typeof AppsMatahangIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bahrami': typeof BahramiRoute
-  '/blueprint': typeof BlueprintRoute
-  '/contact': typeof ContactRoute
-  '/login': typeof LoginRoute
-  '/privacy': typeof PrivacyRoute
-  '/register': typeof RegisterRoute
-  '/terms': typeof TermsRoute
-  '/apps/azkhak': typeof AppsAzkhakRoute
-  '/apps/makhte': typeof AppsMakhteRoute
-  '/apps': typeof AppsIndexRoute
-  '/dashboard': typeof DashboardIndexRoute
-  '/apps/matahang/new': typeof AppsMatahangNewRoute
-  '/apps/matahang': typeof AppsMatahangIndexRoute
-  '/apps/aahamatn/$id/print': typeof AppsAahamatnIdPrintRoute
-  '/apps/matahang/$id/edit': typeof AppsMatahangIdEditRoute
-  '/apps/matahang/$id': typeof AppsMatahangIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bahrami': typeof BahramiRoute
-  '/blueprint': typeof BlueprintRoute
-  '/contact': typeof ContactRoute
-  '/login': typeof LoginRoute
-  '/privacy': typeof PrivacyRoute
-  '/register': typeof RegisterRoute
-  '/terms': typeof TermsRoute
-  '/apps/azkhak': typeof AppsAzkhakRoute
-  '/apps/makhte': typeof AppsMakhteRoute
-  '/apps/matahang': typeof AppsMatahangRouteWithChildren
-  '/apps/': typeof AppsIndexRoute
-  '/dashboard/': typeof DashboardIndexRoute
-  '/apps/matahang/new': typeof AppsMatahangNewRoute
-  '/apps/matahang/': typeof AppsMatahangIndexRoute
-  '/apps/aahamatn/$id/print': typeof AppsAahamatnIdPrintRoute
-  '/apps/matahang/$id/edit': typeof AppsMatahangIdEditRoute
-  '/apps/matahang/$id/': typeof AppsMatahangIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/bahrami'
-    | '/blueprint'
-    | '/contact'
-    | '/login'
-    | '/privacy'
-    | '/register'
-    | '/terms'
-    | '/apps/azkhak'
-    | '/apps/makhte'
-    | '/apps/matahang'
-    | '/apps/'
-    | '/dashboard/'
-    | '/apps/matahang/new'
-    | '/apps/matahang/'
-    | '/apps/aahamatn/$id/print'
-    | '/apps/matahang/$id/edit'
-    | '/apps/matahang/$id/'
+  fullPaths: '/' | '/bahrami'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/bahrami'
-    | '/blueprint'
-    | '/contact'
-    | '/login'
-    | '/privacy'
-    | '/register'
-    | '/terms'
-    | '/apps/azkhak'
-    | '/apps/makhte'
-    | '/apps'
-    | '/dashboard'
-    | '/apps/matahang/new'
-    | '/apps/matahang'
-    | '/apps/aahamatn/$id/print'
-    | '/apps/matahang/$id/edit'
-    | '/apps/matahang/$id'
-  id:
-    | '__root__'
-    | '/'
-    | '/bahrami'
-    | '/blueprint'
-    | '/contact'
-    | '/login'
-    | '/privacy'
-    | '/register'
-    | '/terms'
-    | '/apps/azkhak'
-    | '/apps/makhte'
-    | '/apps/matahang'
-    | '/apps/'
-    | '/dashboard/'
-    | '/apps/matahang/new'
-    | '/apps/matahang/'
-    | '/apps/aahamatn/$id/print'
-    | '/apps/matahang/$id/edit'
-    | '/apps/matahang/$id/'
+  to: '/' | '/bahrami'
+  id: '__root__' | '/' | '/bahrami'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BahramiRoute: typeof BahramiRoute
-  BlueprintRoute: typeof BlueprintRoute
-  ContactRoute: typeof ContactRoute
-  LoginRoute: typeof LoginRoute
-  PrivacyRoute: typeof PrivacyRoute
-  RegisterRoute: typeof RegisterRoute
-  TermsRoute: typeof TermsRoute
-  AppsAzkhakRoute: typeof AppsAzkhakRoute
-  AppsMakhteRoute: typeof AppsMakhteRoute
-  AppsMatahangRoute: typeof AppsMatahangRouteWithChildren
-  AppsIndexRoute: typeof AppsIndexRoute
-  DashboardIndexRoute: typeof DashboardIndexRoute
-  AppsAahamatnIdPrintRoute: typeof AppsAahamatnIdPrintRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -274,154 +65,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BahramiRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blueprint': {
-      id: '/blueprint'
-      path: '/blueprint'
-      fullPath: '/blueprint'
-      preLoaderRoute: typeof BlueprintRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/privacy': {
-      id: '/privacy'
-      path: '/privacy'
-      fullPath: '/privacy'
-      preLoaderRoute: typeof PrivacyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/register': {
-      id: '/register'
-      path: '/register'
-      fullPath: '/register'
-      preLoaderRoute: typeof RegisterRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/terms': {
-      id: '/terms'
-      path: '/terms'
-      fullPath: '/terms'
-      preLoaderRoute: typeof TermsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/apps/': {
-      id: '/apps/'
-      path: '/apps'
-      fullPath: '/apps/'
-      preLoaderRoute: typeof AppsIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/apps/azkhak': {
-      id: '/apps/azkhak'
-      path: '/apps/azkhak'
-      fullPath: '/apps/azkhak'
-      preLoaderRoute: typeof AppsAzkhakRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/apps/makhte': {
-      id: '/apps/makhte'
-      path: '/apps/makhte'
-      fullPath: '/apps/makhte'
-      preLoaderRoute: typeof AppsMakhteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/apps/matahang': {
-      id: '/apps/matahang'
-      path: '/apps/matahang'
-      fullPath: '/apps/matahang'
-      preLoaderRoute: typeof AppsMatahangRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dashboard/': {
-      id: '/dashboard/'
-      path: '/dashboard'
-      fullPath: '/dashboard/'
-      preLoaderRoute: typeof DashboardIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/apps/matahang/': {
-      id: '/apps/matahang/'
-      path: '/'
-      fullPath: '/apps/matahang/'
-      preLoaderRoute: typeof AppsMatahangIndexRouteImport
-      parentRoute: typeof AppsMatahangRoute
-    }
-    '/apps/matahang/new': {
-      id: '/apps/matahang/new'
-      path: '/new'
-      fullPath: '/apps/matahang/new'
-      preLoaderRoute: typeof AppsMatahangNewRouteImport
-      parentRoute: typeof AppsMatahangRoute
-    }
-    '/apps/aahamatn/$id/print': {
-      id: '/apps/aahamatn/$id/print'
-      path: '/apps/aahamatn/$id/print'
-      fullPath: '/apps/aahamatn/$id/print'
-      preLoaderRoute: typeof AppsAahamatnIdPrintRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/apps/matahang/$id/': {
-      id: '/apps/matahang/$id/'
-      path: '/$id'
-      fullPath: '/apps/matahang/$id/'
-      preLoaderRoute: typeof AppsMatahangIdIndexRouteImport
-      parentRoute: typeof AppsMatahangRoute
-    }
-    '/apps/matahang/$id/edit': {
-      id: '/apps/matahang/$id/edit'
-      path: '/$id/edit'
-      fullPath: '/apps/matahang/$id/edit'
-      preLoaderRoute: typeof AppsMatahangIdEditRouteImport
-      parentRoute: typeof AppsMatahangRoute
-    }
   }
 }
-
-interface AppsMatahangRouteChildren {
-  AppsMatahangNewRoute: typeof AppsMatahangNewRoute
-  AppsMatahangIndexRoute: typeof AppsMatahangIndexRoute
-  AppsMatahangIdEditRoute: typeof AppsMatahangIdEditRoute
-  AppsMatahangIdIndexRoute: typeof AppsMatahangIdIndexRoute
-}
-
-const AppsMatahangRouteChildren: AppsMatahangRouteChildren = {
-  AppsMatahangNewRoute: AppsMatahangNewRoute,
-  AppsMatahangIndexRoute: AppsMatahangIndexRoute,
-  AppsMatahangIdEditRoute: AppsMatahangIdEditRoute,
-  AppsMatahangIdIndexRoute: AppsMatahangIdIndexRoute,
-}
-
-const AppsMatahangRouteWithChildren = AppsMatahangRoute._addFileChildren(
-  AppsMatahangRouteChildren,
-)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BahramiRoute: BahramiRoute,
-  BlueprintRoute: BlueprintRoute,
-  ContactRoute: ContactRoute,
-  LoginRoute: LoginRoute,
-  PrivacyRoute: PrivacyRoute,
-  RegisterRoute: RegisterRoute,
-  TermsRoute: TermsRoute,
-  AppsAzkhakRoute: AppsAzkhakRoute,
-  AppsMakhteRoute: AppsMakhteRoute,
-  AppsMatahangRoute: AppsMatahangRouteWithChildren,
-  AppsIndexRoute: AppsIndexRoute,
-  DashboardIndexRoute: DashboardIndexRoute,
-  AppsAahamatnIdPrintRoute: AppsAahamatnIdPrintRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
